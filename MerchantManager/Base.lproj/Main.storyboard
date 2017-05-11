@@ -141,6 +141,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="ZD6-ZI-xmH"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <segue destination="XEc-8X-BH6" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="bNh-f8-gSF"/>
                         <segue destination="bjY-Fb-cna" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="jtZ-Sr-Kf4"/>
@@ -173,6 +174,10 @@
                             <outlet property="delegate" destination="XEc-8X-BH6" id="InH-3X-epM"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="RuG-xm-DNo" kind="custom" identifier="show_order_list" customClass="SWRevealViewControllerSeguePushController" id="4C5-CC-evB"/>
+                        <segue destination="bjY-Fb-cna" kind="custom" identifier="show_dashboard" customClass="SWRevealViewControllerSeguePushController" id="9KD-xb-ueO"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cPw-ri-oVg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -192,7 +197,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cl1-BX-IMq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3400" y="1075"/>
+            <point key="canvasLocation" x="3377" y="883"/>
         </scene>
         <!--Dashboard View Controller-->
         <scene sceneID="S2L-h7-dT7">
@@ -208,7 +213,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="OfX-em-aA9">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="RiH-8a-0Db"/>
+                        <barButtonItem key="leftBarButtonItem" image="icon_menu" id="RiH-8a-0Db"/>
                     </navigationItem>
                     <connections>
                         <outlet property="menuButton" destination="RiH-8a-0Db" id="vtz-Dn-yGo"/>
@@ -216,7 +221,56 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h0C-3Y-AJ2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4152" y="1072"/>
+            <point key="canvasLocation" x="4145" y="883"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="T1U-Fu-m0N">
+            <objects>
+                <navigationController id="RuG-xm-DNo" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YaA-1S-zJP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="xmM-xZ-hgQ" kind="relationship" relationship="rootViewController" id="q8q-a7-nqd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qnA-t4-Ge7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3377" y="187"/>
+        </scene>
+        <!--Order List View Controller-->
+        <scene sceneID="veD-wg-C2S">
+            <objects>
+                <viewController id="xmM-xZ-hgQ" customClass="OrderListViewController" customModule="MerchantManager" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2ks-Br-tq3"/>
+                        <viewControllerLayoutGuide type="bottom" id="Hh4-2d-Kib"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Cf8-Vv-Ssd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Order List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8bI-wl-H5N">
+                                <rect key="frame" x="137" y="323" width="101" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="94I-o0-h1v">
+                        <barButtonItem key="leftBarButtonItem" image="icon_menu" id="efb-q9-4PY"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="menuButton" destination="efb-q9-4PY" id="rnC-zp-eiq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MU4-SU-lAf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4145" y="187"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ms1-nJ-JmF">
@@ -236,4 +290,10 @@
             <point key="canvasLocation" x="294" y="664"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icon_menu" width="30" height="30"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="9KD-xb-ueO"/>
+    </inferredMetricsTieBreakers>
 </document>

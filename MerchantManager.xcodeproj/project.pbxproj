@@ -20,6 +20,7 @@
 		79D647801EC2E3720045822C /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D6477F1EC2E3720045822C /* AccountManager.swift */; };
 		79D647821EC2E3DE0045822C /* OrderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D647811EC2E3DE0045822C /* OrderManager.swift */; };
 		79D647861EC2E45F0045822C /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D647851EC2E45F0045822C /* MenuTableViewController.swift */; };
+		79D647881EC432B30045822C /* OrderListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D647871EC432B30045822C /* OrderListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		79D6477F1EC2E3720045822C /* AccountManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
 		79D647811EC2E3DE0045822C /* OrderManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderManager.swift; sourceTree = "<group>"; };
 		79D647851EC2E45F0045822C /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
+		79D647871EC432B30045822C /* OrderListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +217,7 @@
 		79D6477A1EC2D6730045822C /* OrderViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				79D647871EC432B30045822C /* OrderListViewController.swift */,
 			);
 			name = OrderViewControllers;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				79D647431EC2B9F30045822C /* LoginViewController.swift in Sources */,
+				79D647881EC432B30045822C /* OrderListViewController.swift in Sources */,
 				79D647411EC2B9F30045822C /* AppDelegate.swift in Sources */,
 				79D6477E1EC2D9E90045822C /* UIConstants.swift in Sources */,
 				79D647781EC2D5270045822C /* SWRevealViewController.m in Sources */,
@@ -613,6 +617,7 @@
 				79D647671EC2B9F40045822C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		79D647681EC2B9F40045822C /* Build configuration list for PBXNativeTarget "MerchantManagerTests" */ = {
 			isa = XCConfigurationList;
@@ -621,6 +626,7 @@
 				79D6476A1EC2B9F40045822C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		79D6476B1EC2B9F40045822C /* Build configuration list for PBXNativeTarget "MerchantManagerUITests" */ = {
 			isa = XCConfigurationList;
@@ -629,6 +635,7 @@
 				79D6476D1EC2B9F40045822C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

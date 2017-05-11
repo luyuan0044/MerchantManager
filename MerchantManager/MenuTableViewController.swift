@@ -10,12 +10,12 @@ import UIKit
 
 class MenuTableViewController: UITableViewController {
     
-    typealias RowValue = (imagePath:String, title:String, targetViewController:UIViewController?)
+    typealias RowValue = (imagePath:String, title:String, segue:String?)
     
     let menuItems:[RowValue] =
         [("icon_user_filled.png", "User Name", nil),
-        ("icon_dashboard_filled.png", NSLocalizedString("dashboard", comment: ""), nil),
-        ("icon_order_filled.png", NSLocalizedString("orders", comment: ""), nil),
+        ("icon_dashboard_filled.png", NSLocalizedString("dashboard", comment: ""), "show_dashboard"),
+        ("icon_order_filled.png", NSLocalizedString("orders", comment: ""), "show_order_list"),
         ("icon_category_filled.png", NSLocalizedString("categories", comment: ""), nil),
         ("icon_product_filled.png", NSLocalizedString("products", comment: ""), nil),
         ("icon_store_filled.png", NSLocalizedString("store", comment: ""), nil),
@@ -84,6 +84,10 @@ class MenuTableViewController: UITableViewController {
         let cell = tableView.cellForRow(at: indexPath)
         cell?.contentView.backgroundColor = menuTableViewSelectedCellBackgroundColor
         cell?.backgroundColor = menuTableViewSelectedCellBackgroundColor
+        
+        if let segue = menuItems[indexPath.row].segue {
+            performSegue(withIdentifier: segue, sender: nil)
+        }
     }
     
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
