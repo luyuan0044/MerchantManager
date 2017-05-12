@@ -15,6 +15,8 @@ class DashboardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = NSLocalizedString("dashboard", comment: "")
+        
         styleNavBar()
         
         //setup left menu button
@@ -36,8 +38,10 @@ class DashboardViewController: UIViewController {
         self.navigationController?.navigationBar.isTranslucent = false
         
         self.navigationController?.navigationBar.barTintColor = appThemeColor
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
         
         menuButton.tintColor = UIColor.white
+        menuButton.imageInsets = UIEdgeInsets (top: 5, left: 5, bottom: 5, right: 5)
     }
 
     /*

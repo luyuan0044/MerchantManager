@@ -18,9 +18,19 @@
 		79D6477C1EC2D6E10045822C /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D6477B1EC2D6E10045822C /* DashboardViewController.swift */; };
 		79D6477E1EC2D9E90045822C /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D6477D1EC2D9E90045822C /* UIConstants.swift */; };
 		79D647801EC2E3720045822C /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D6477F1EC2E3720045822C /* AccountManager.swift */; };
-		79D647821EC2E3DE0045822C /* OrderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D647811EC2E3DE0045822C /* OrderManager.swift */; };
+		79D647821EC2E3DE0045822C /* OrderList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D647811EC2E3DE0045822C /* OrderList.swift */; };
 		79D647861EC2E45F0045822C /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D647851EC2E45F0045822C /* MenuTableViewController.swift */; };
 		79D647881EC432B30045822C /* OrderListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D647871EC432B30045822C /* OrderListViewController.swift */; };
+		79D6478A1EC550A10045822C /* PagingOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D647891EC550A10045822C /* PagingOption.swift */; };
+		79D6478C1EC5514F0045822C /* DataPagingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D6478B1EC5514F0045822C /* DataPagingControl.swift */; };
+		79D6478E1EC558900045822C /* OrderListPostBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D6478D1EC558900045822C /* OrderListPostBody.swift */; };
+		79D647911EC558EB0045822C /* OrderListSearchCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D647901EC558EB0045822C /* OrderListSearchCondition.swift */; };
+		79D647931EC559EA0045822C /* PagingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D647921EC559EA0045822C /* PagingInfo.swift */; };
+		79D647951EC55BBE0045822C /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D647941EC55BBE0045822C /* Order.swift */; };
+		79D647971EC55FE90045822C /* SysConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D647961EC55FE90045822C /* SysConstants.swift */; };
+		79D6479A1EC576D20045822C /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D647991EC576D20045822C /* Account.swift */; };
+		79D6479C1EC57E140045822C /* CacheManageProtocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D6479B1EC57E140045822C /* CacheManageProtocal.swift */; };
+		79D6479E1EC584700045822C /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D6479D1EC584700045822C /* ApiResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,9 +70,19 @@
 		79D6477B1EC2D6E10045822C /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		79D6477D1EC2D9E90045822C /* UIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
 		79D6477F1EC2E3720045822C /* AccountManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
-		79D647811EC2E3DE0045822C /* OrderManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderManager.swift; sourceTree = "<group>"; };
+		79D647811EC2E3DE0045822C /* OrderList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderList.swift; sourceTree = "<group>"; };
 		79D647851EC2E45F0045822C /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		79D647871EC432B30045822C /* OrderListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderListViewController.swift; sourceTree = "<group>"; };
+		79D647891EC550A10045822C /* PagingOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagingOption.swift; sourceTree = "<group>"; };
+		79D6478B1EC5514F0045822C /* DataPagingControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataPagingControl.swift; sourceTree = "<group>"; };
+		79D6478D1EC558900045822C /* OrderListPostBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderListPostBody.swift; sourceTree = "<group>"; };
+		79D647901EC558EB0045822C /* OrderListSearchCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderListSearchCondition.swift; sourceTree = "<group>"; };
+		79D647921EC559EA0045822C /* PagingInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagingInfo.swift; sourceTree = "<group>"; };
+		79D647941EC55BBE0045822C /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		79D647961EC55FE90045822C /* SysConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SysConstants.swift; sourceTree = "<group>"; };
+		79D647991EC576D20045822C /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		79D6479B1EC57E140045822C /* CacheManageProtocal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheManageProtocal.swift; sourceTree = "<group>"; };
+		79D6479D1EC584700045822C /* ApiResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,7 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				79D6477F1EC2E3720045822C /* AccountManager.swift */,
-				79D647811EC2E3DE0045822C /* OrderManager.swift */,
+				79D647811EC2E3DE0045822C /* OrderList.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -186,6 +206,9 @@
 			isa = PBXGroup;
 			children = (
 				79D6477D1EC2D9E90045822C /* UIConstants.swift */,
+				79D6478B1EC5514F0045822C /* DataPagingControl.swift */,
+				79D647961EC55FE90045822C /* SysConstants.swift */,
+				79D6479B1EC57E140045822C /* CacheManageProtocal.swift */,
 			);
 			name = Supports;
 			sourceTree = "<group>";
@@ -193,6 +216,11 @@
 		79D647731EC2D3E70045822C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				79D647981EC576180045822C /* Account */,
+				79D6478F1EC558C70045822C /* Order */,
+				79D647891EC550A10045822C /* PagingOption.swift */,
+				79D647921EC559EA0045822C /* PagingInfo.swift */,
+				79D6479D1EC584700045822C /* ApiResponse.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -220,6 +248,24 @@
 				79D647871EC432B30045822C /* OrderListViewController.swift */,
 			);
 			name = OrderViewControllers;
+			sourceTree = "<group>";
+		};
+		79D6478F1EC558C70045822C /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				79D6478D1EC558900045822C /* OrderListPostBody.swift */,
+				79D647901EC558EB0045822C /* OrderListSearchCondition.swift */,
+				79D647941EC55BBE0045822C /* Order.swift */,
+			);
+			name = Order;
+			sourceTree = "<group>";
+		};
+		79D647981EC576180045822C /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				79D647991EC576D20045822C /* Account.swift */,
+			);
+			name = Account;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -359,11 +405,21 @@
 			files = (
 				79D647431EC2B9F30045822C /* LoginViewController.swift in Sources */,
 				79D647881EC432B30045822C /* OrderListViewController.swift in Sources */,
+				79D6478E1EC558900045822C /* OrderListPostBody.swift in Sources */,
 				79D647411EC2B9F30045822C /* AppDelegate.swift in Sources */,
 				79D6477E1EC2D9E90045822C /* UIConstants.swift in Sources */,
 				79D647781EC2D5270045822C /* SWRevealViewController.m in Sources */,
 				79D647861EC2E45F0045822C /* MenuTableViewController.swift in Sources */,
-				79D647821EC2E3DE0045822C /* OrderManager.swift in Sources */,
+				79D647931EC559EA0045822C /* PagingInfo.swift in Sources */,
+				79D647911EC558EB0045822C /* OrderListSearchCondition.swift in Sources */,
+				79D647971EC55FE90045822C /* SysConstants.swift in Sources */,
+				79D6479E1EC584700045822C /* ApiResponse.swift in Sources */,
+				79D6478A1EC550A10045822C /* PagingOption.swift in Sources */,
+				79D6479C1EC57E140045822C /* CacheManageProtocal.swift in Sources */,
+				79D6479A1EC576D20045822C /* Account.swift in Sources */,
+				79D647821EC2E3DE0045822C /* OrderList.swift in Sources */,
+				79D6478C1EC5514F0045822C /* DataPagingControl.swift in Sources */,
+				79D647951EC55BBE0045822C /* Order.swift in Sources */,
 				79D6477C1EC2D6E10045822C /* DashboardViewController.swift in Sources */,
 				79D647801EC2E3720045822C /* AccountManager.swift in Sources */,
 			);

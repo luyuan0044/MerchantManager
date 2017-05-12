@@ -8,3 +8,9 @@
 
 import Foundation
 
+class AccountManager {
+    
+    static let shareInstance = AccountManager()
+    
+    
+}
