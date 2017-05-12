@@ -18,6 +18,10 @@ class OrderListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     @IBOutlet weak var orderListTableView: UITableView!
     
+    var orders: [[Order]] = [[]]
+    
+    let orderCellIdentifier = "orderCell"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,6 +42,10 @@ class OrderListViewController: UIViewController, UITableViewDelegate, UITableVie
         
         orderListTableView.delegate = self
         orderListTableView.dataSource = self
+        
+        OrderList.shareInstance.LoadOrderList(completion: {orders in
+            handleLoadOrderComplete(orders: orders)
+        })
     }
     
     override func didReceiveMemoryWarning() {
@@ -58,14 +66,25 @@ class OrderListViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        var cell = tableView.dequeueReusableCell(withIdentifier: orderCellIdentifier)
+        
+        if cell == nil {
+            cell = UITableViewCell (style: .default, reuseIdentifier: orderCellIdentifier)
+        }
+    
+        return cell!
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return orders[section].count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return orders.count
+    }
+    
+    private func handleLoadOrderComplete (orders: [[Order]]) {
+        self.orders = orders
+        self.orderListTableView.reloadData()
     }
 }

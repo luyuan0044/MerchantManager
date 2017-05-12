@@ -16,11 +16,17 @@ class OrderList : CacheManageProtocal {
     
     var all: [Order] = []
     
-    func LoadOrderList (completion: ([Order]) -> Void) {
-        
+    func LoadOrderList (completion: ([[Order]]) -> Void) {
+        startRequestDataFromServer (completion: { orders in
+            all.append(contentsOf: orders)
+            
+            var result: [[Order]] = [[]]
+            result.append(self.all)
+            completion(result)
+        })
     }
     
-    func RefreshOrderList (completion: ([Order]) -> Void) {
+    func RefreshOrderList (completion: ([[Order]]) -> Void) {
         pagingCtrl.reset()
         LoadOrderList(completion: completion)
     }
@@ -28,5 +34,14 @@ class OrderList : CacheManageProtocal {
     func cleanCache() {
         pagingCtrl.reset()
         all = []
+    }
+    
+    private func startRequestDataFromServer (completion: ([Order]) -> Void) {
+        var result: [Order] = []
+        
+        result.append(Order())
+        result.append(Order())
+        
+        completion (result)
     }
 }

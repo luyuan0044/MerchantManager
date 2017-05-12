@@ -20,6 +20,7 @@ class DataPagingControl {
             
             if let _pagingOption = _pagingOption {
                 //Update paging info
+                inital = false
                 current = _pagingOption.page
             }
         }
