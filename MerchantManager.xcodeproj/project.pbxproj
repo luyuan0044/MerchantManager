@@ -28,9 +28,16 @@
 		79D647931EC559EA0045822C /* PagingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D647921EC559EA0045822C /* PagingInfo.swift */; };
 		79D647951EC55BBE0045822C /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D647941EC55BBE0045822C /* Order.swift */; };
 		79D647971EC55FE90045822C /* SysConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D647961EC55FE90045822C /* SysConstants.swift */; };
-		79D6479A1EC576D20045822C /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D647991EC576D20045822C /* Account.swift */; };
+		79D6479A1EC576D20045822C /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D647991EC576D20045822C /* Profile.swift */; };
 		79D6479C1EC57E140045822C /* CacheManageProtocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D6479B1EC57E140045822C /* CacheManageProtocal.swift */; };
 		79D6479E1EC584700045822C /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D6479D1EC584700045822C /* ApiResponse.swift */; };
+		79D647A01EC6D36D0045822C /* AminConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D6479F1EC6D36D0045822C /* AminConfig.swift */; };
+		79D647A21EC6D4080045822C /* TaxClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D647A11EC6D4080045822C /* TaxClass.swift */; };
+		79D647A41EC6D55C0045822C /* LoginPostBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D647A31EC6D55C0045822C /* LoginPostBody.swift */; };
+		79D647A61EC6D7A90045822C /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D647A51EC6D7A90045822C /* LoginResponse.swift */; };
+		79D647A81EC6D8290045822C /* PhoneComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D647A71EC6D8290045822C /* PhoneComponents.swift */; };
+		79D647AB1EC6D8B90045822C /* StoreGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D647AA1EC6D8B90045822C /* StoreGroup.swift */; };
+		79D647AD1EC6D9BA0045822C /* OauthKeyPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D647AC1EC6D9BA0045822C /* OauthKeyPair.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,9 +87,16 @@
 		79D647921EC559EA0045822C /* PagingInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagingInfo.swift; sourceTree = "<group>"; };
 		79D647941EC55BBE0045822C /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		79D647961EC55FE90045822C /* SysConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SysConstants.swift; sourceTree = "<group>"; };
-		79D647991EC576D20045822C /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		79D647991EC576D20045822C /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		79D6479B1EC57E140045822C /* CacheManageProtocal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheManageProtocal.swift; sourceTree = "<group>"; };
 		79D6479D1EC584700045822C /* ApiResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiResponse.swift; sourceTree = "<group>"; };
+		79D6479F1EC6D36D0045822C /* AminConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AminConfig.swift; sourceTree = "<group>"; };
+		79D647A11EC6D4080045822C /* TaxClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxClass.swift; sourceTree = "<group>"; };
+		79D647A31EC6D55C0045822C /* LoginPostBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPostBody.swift; sourceTree = "<group>"; };
+		79D647A51EC6D7A90045822C /* LoginResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		79D647A71EC6D8290045822C /* PhoneComponents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneComponents.swift; sourceTree = "<group>"; };
+		79D647AA1EC6D8B90045822C /* StoreGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreGroup.swift; sourceTree = "<group>"; };
+		79D647AC1EC6D9BA0045822C /* OauthKeyPair.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OauthKeyPair.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,11 +230,18 @@
 		79D647731EC2D3E70045822C /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				79D647981EC576180045822C /* Account */,
+				79D647A91EC6D8AA0045822C /* Store */,
+				79D647981EC576180045822C /* Profile */,
 				79D6478F1EC558C70045822C /* Order */,
 				79D647891EC550A10045822C /* PagingOption.swift */,
 				79D647921EC559EA0045822C /* PagingInfo.swift */,
 				79D6479D1EC584700045822C /* ApiResponse.swift */,
+				79D6479F1EC6D36D0045822C /* AminConfig.swift */,
+				79D647A11EC6D4080045822C /* TaxClass.swift */,
+				79D647A31EC6D55C0045822C /* LoginPostBody.swift */,
+				79D647A51EC6D7A90045822C /* LoginResponse.swift */,
+				79D647A71EC6D8290045822C /* PhoneComponents.swift */,
+				79D647AC1EC6D9BA0045822C /* OauthKeyPair.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -260,12 +281,20 @@
 			name = Order;
 			sourceTree = "<group>";
 		};
-		79D647981EC576180045822C /* Account */ = {
+		79D647981EC576180045822C /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				79D647991EC576D20045822C /* Account.swift */,
+				79D647991EC576D20045822C /* Profile.swift */,
 			);
-			name = Account;
+			name = Profile;
+			sourceTree = "<group>";
+		};
+		79D647A91EC6D8AA0045822C /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				79D647AA1EC6D8B90045822C /* StoreGroup.swift */,
+			);
+			name = Store;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -403,25 +432,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79D647A81EC6D8290045822C /* PhoneComponents.swift in Sources */,
 				79D647431EC2B9F30045822C /* LoginViewController.swift in Sources */,
+				79D647A01EC6D36D0045822C /* AminConfig.swift in Sources */,
+				79D647A61EC6D7A90045822C /* LoginResponse.swift in Sources */,
 				79D647881EC432B30045822C /* OrderListViewController.swift in Sources */,
 				79D6478E1EC558900045822C /* OrderListPostBody.swift in Sources */,
 				79D647411EC2B9F30045822C /* AppDelegate.swift in Sources */,
+				79D647A41EC6D55C0045822C /* LoginPostBody.swift in Sources */,
 				79D6477E1EC2D9E90045822C /* UIConstants.swift in Sources */,
 				79D647781EC2D5270045822C /* SWRevealViewController.m in Sources */,
 				79D647861EC2E45F0045822C /* MenuTableViewController.swift in Sources */,
 				79D647931EC559EA0045822C /* PagingInfo.swift in Sources */,
 				79D647911EC558EB0045822C /* OrderListSearchCondition.swift in Sources */,
 				79D647971EC55FE90045822C /* SysConstants.swift in Sources */,
+				79D647AB1EC6D8B90045822C /* StoreGroup.swift in Sources */,
 				79D6479E1EC584700045822C /* ApiResponse.swift in Sources */,
 				79D6478A1EC550A10045822C /* PagingOption.swift in Sources */,
 				79D6479C1EC57E140045822C /* CacheManageProtocal.swift in Sources */,
-				79D6479A1EC576D20045822C /* Account.swift in Sources */,
+				79D6479A1EC576D20045822C /* Profile.swift in Sources */,
 				79D647821EC2E3DE0045822C /* OrderList.swift in Sources */,
 				79D6478C1EC5514F0045822C /* DataPagingControl.swift in Sources */,
 				79D647951EC55BBE0045822C /* Order.swift in Sources */,
 				79D6477C1EC2D6E10045822C /* DashboardViewController.swift in Sources */,
+				79D647AD1EC6D9BA0045822C /* OauthKeyPair.swift in Sources */,
 				79D647801EC2E3720045822C /* AccountManager.swift in Sources */,
+				79D647A21EC6D4080045822C /* TaxClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -43,9 +43,7 @@ class OrderListViewController: UIViewController, UITableViewDelegate, UITableVie
         orderListTableView.delegate = self
         orderListTableView.dataSource = self
         
-        OrderList.shareInstance.LoadOrderList(completion: {orders in
-            handleLoadOrderComplete(orders: orders)
-        })
+        loadData (false)
     }
     
     override func didReceiveMemoryWarning() {
@@ -83,8 +81,27 @@ class OrderListViewController: UIViewController, UITableViewDelegate, UITableVie
         return orders.count
     }
     
-    private func handleLoadOrderComplete (orders: [[Order]]) {
-        self.orders = orders
-        self.orderListTableView.reloadData()
+    private func pullToRefresh() {
+        DispatchQueue.global().async {
+            let result = OrderList.shareInstance.RefreshOrderList()
+            self.orders = result
+            self.RefreshData()
+        }
+    }
+    
+    private func loadData (_ force: Bool) {
+        DispatchQueue.global().async {
+            let result = OrderList.shareInstance.LoadOrderList(force)
+            self.orders = result
+            
+            self.RefreshData()
+        }
+    }
+    
+    private func RefreshData() {
+        DispatchQueue.main.async {
+            self.orderListTableView.reloadData()
+            self.orderListTableView.layoutIfNeeded()
+        }
     }
 }

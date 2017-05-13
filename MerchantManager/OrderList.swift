@@ -14,21 +14,27 @@ class OrderList : CacheManageProtocal {
     
     var pagingCtrl = DataPagingControl ()
     
-    var all: [Order] = []
+    var all: [Order]?
     
-    func LoadOrderList (completion: ([[Order]]) -> Void) {
-        startRequestDataFromServer (completion: { orders in
-            all.append(contentsOf: orders)
-            
-            var result: [[Order]] = [[]]
-            result.append(self.all)
-            completion(result)
-        })
+    func LoadOrderList (_ force: Bool) -> [[Order]] {
+        if force || all == nil {
+            DispatchQueue.global().sync {
+                if all == nil {
+                    all = []
+                }
+                
+                if let orders = startRequestDataFromServer() {
+                    all!.append(contentsOf: orders)
+                }
+            }
+        }
+    
+        return [all!]
     }
     
-    func RefreshOrderList (completion: ([[Order]]) -> Void) {
+    func RefreshOrderList () -> [[Order]] {
         pagingCtrl.reset()
-        LoadOrderList(completion: completion)
+        return LoadOrderList(true)
     }
     
     func cleanCache() {
@@ -36,12 +42,14 @@ class OrderList : CacheManageProtocal {
         all = []
     }
     
-    private func startRequestDataFromServer (completion: ([Order]) -> Void) {
-        var result: [Order] = []
+    func startRequestDataFromServer () -> [Order]? {
+        var result: [Order]? = []
         
-        result.append(Order())
-        result.append(Order())
+        result!.append(Order())
+        result!.append(Order())
         
-        completion (result)
+        sleep(10)
+        
+        return result
     }
 }
