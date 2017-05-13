@@ -33,13 +33,13 @@ class OrderList : CacheManageProtocal {
     }
     
     func RefreshOrderList () -> [[Order]] {
-        pagingCtrl.reset()
+        cleanCache()
         return LoadOrderList(true)
     }
     
     func cleanCache() {
         pagingCtrl.reset()
-        all = []
+        all = nil
     }
     
     func startRequestDataFromServer () -> [Order]? {
@@ -48,7 +48,7 @@ class OrderList : CacheManageProtocal {
         result!.append(Order())
         result!.append(Order())
         
-        sleep(10)
+        sleep(3)
         
         return result
     }

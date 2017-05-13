@@ -18,6 +18,8 @@ class OrderListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     @IBOutlet weak var orderListTableView: UITableView!
     
+    var refreshControl: UIRefreshControl!
+    
     var orders: [[Order]] = [[]]
     
     let orderCellIdentifier = "orderCell"
@@ -44,6 +46,12 @@ class OrderListViewController: UIViewController, UITableViewDelegate, UITableVie
         orderListTableView.dataSource = self
         
         loadData (false)
+        
+        autoreleasepool(invoking: {
+            refreshControl = UIRefreshControl()
+        })
+        orderListTableView.addSubview(refreshControl)
+        refreshControl.addTarget(self, action: #selector(OrderListViewController.pullToRefresh(sender:)), for: .valueChanged)
     }
     
     override func didReceiveMemoryWarning() {
@@ -81,11 +89,14 @@ class OrderListViewController: UIViewController, UITableViewDelegate, UITableVie
         return orders.count
     }
     
-    private func pullToRefresh() {
+    func pullToRefresh(sender: AnyObject) {
         DispatchQueue.global().async {
             let result = OrderList.shareInstance.RefreshOrderList()
             self.orders = result
             self.RefreshData()
+            DispatchQueue.main.async {
+                self.refreshControl.endRefreshing()
+            }
         }
     }
     
@@ -93,7 +104,6 @@ class OrderListViewController: UIViewController, UITableViewDelegate, UITableVie
         DispatchQueue.global().async {
             let result = OrderList.shareInstance.LoadOrderList(force)
             self.orders = result
-            
             self.RefreshData()
         }
     }
