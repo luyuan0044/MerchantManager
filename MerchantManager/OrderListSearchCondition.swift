@@ -12,7 +12,7 @@ class OrderListSearchCondition : PagingInfo {
     
     //Properties
     var ord_id: String?
-    var status: Int?
+    var status: Int = orderStatus.pending.rawValue
     var sort: Int?
     var phone: String?
     var printed: Bool = false

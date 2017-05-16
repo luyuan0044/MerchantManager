@@ -14,27 +14,26 @@ class OrderList : CacheManageProtocal {
     
     var pagingCtrl = DataPagingControl ()
     
+    var saerchCondition = OrderListSearchCondition()
+    
     var all: [Order]?
     
-    func LoadOrderList (_ force: Bool) -> [[Order]] {
-        if force || all == nil {
+    func LoadOrderList (withCachedClear: Bool) -> [[Order]] {
+        if withCachedClear {
+            cleanCache()
+        }
+        
+        if withCachedClear || all == nil {
+            all = []
+            
             DispatchQueue.global().sync {
-                if all == nil {
-                    all = []
-                }
-                
                 if let orders = startRequestDataFromServer() {
                     all!.append(contentsOf: orders)
                 }
             }
         }
-    
+        
         return [all!]
-    }
-    
-    func RefreshOrderList () -> [[Order]] {
-        cleanCache()
-        return LoadOrderList(true)
     }
     
     func cleanCache() {

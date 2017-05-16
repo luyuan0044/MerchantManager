@@ -40,18 +40,25 @@ class OrderListViewController: UIViewController, UITableViewDelegate, UITableVie
         
         filterPanelView.backgroundColor = appThemeColor
         
-        statusSegButton.tintColor = UIColor.white
-        
         orderListTableView.delegate = self
         orderListTableView.dataSource = self
-        
-        loadData (false)
         
         autoreleasepool(invoking: {
             refreshControl = UIRefreshControl()
         })
         orderListTableView.addSubview(refreshControl)
         refreshControl.addTarget(self, action: #selector(OrderListViewController.pullToRefresh(sender:)), for: .valueChanged)
+        
+        statusSegButton.tintColor = UIColor.white
+        statusSegButton.addTarget(self, action: #selector(OrderListViewController.onSegButtonClicked(sender:)), for: .valueChanged)
+        statusSegButton.setTitle(NSLocalizedString("all", comment: ""), forSegmentAt: 0)
+        statusSegButton.setTitle(NSLocalizedString("pending", comment: ""), forSegmentAt: 1)
+        statusSegButton.setTitle(NSLocalizedString("completed", comment: ""), forSegmentAt: 2)
+        statusSegButton.setTitle(NSLocalizedString("canceled", comment: ""), forSegmentAt: 3)
+        statusSegButton.setTitle(NSLocalizedString("closed", comment: ""), forSegmentAt: 4)
+        statusSegButton.selectedSegmentIndex = OrderList.shareInstance.saerchCondition.status
+        
+        loadData (withCachedClear: false)
     }
     
     override func didReceiveMemoryWarning() {
@@ -89,29 +96,46 @@ class OrderListViewController: UIViewController, UITableViewDelegate, UITableVie
         return orders.count
     }
     
+    func onSegButtonClicked(sender: AnyObject) {
+        let segButton = sender as! UISegmentedControl
+        
+        switch segButton.selectedSegmentIndex {
+            case 0:
+                OrderList.shareInstance.saerchCondition.status = 0
+            case 1:
+                OrderList.shareInstance.saerchCondition.status = 1
+            case 2:
+                OrderList.shareInstance.saerchCondition.status = 2
+            case 3:
+                OrderList.shareInstance.saerchCondition.status = 3
+            case 4:
+                OrderList.shareInstance.saerchCondition.status = 4
+            default:
+                break
+        }
+        
+        loadData(withCachedClear: true)
+    }
+    
     func pullToRefresh(sender: AnyObject) {
+        loadData(withCachedClear: true)
+    }
+    
+    private func loadData (withCachedClear: Bool) {
+        statusSegButton.isUserInteractionEnabled = false
         DispatchQueue.global().async {
-            let result = OrderList.shareInstance.RefreshOrderList()
+            let result = OrderList.shareInstance.LoadOrderList(withCachedClear: withCachedClear)
             self.orders = result
-            self.RefreshData()
+            
             DispatchQueue.main.async {
-                self.refreshControl.endRefreshing()
+                self.statusSegButton.isUserInteractionEnabled = true
+                self.RefreshData()
             }
         }
     }
     
-    private func loadData (_ force: Bool) {
-        DispatchQueue.global().async {
-            let result = OrderList.shareInstance.LoadOrderList(force)
-            self.orders = result
-            self.RefreshData()
-        }
-    }
-    
     private func RefreshData() {
-        DispatchQueue.main.async {
-            self.orderListTableView.reloadData()
-            self.orderListTableView.layoutIfNeeded()
-        }
+        self.orderListTableView.reloadData()
+        self.orderListTableView.layoutIfNeeded()
     }
 }

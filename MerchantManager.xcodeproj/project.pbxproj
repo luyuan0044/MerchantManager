@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		79497C301EC79A4400066644 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79497C2F1EC79A4400066644 /* Enums.swift */; };
 		79D647411EC2B9F30045822C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D647401EC2B9F30045822C /* AppDelegate.swift */; };
 		79D647431EC2B9F30045822C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D647421EC2B9F30045822C /* LoginViewController.swift */; };
 		79D647461EC2B9F30045822C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79D647441EC2B9F30045822C /* Main.storyboard */; };
@@ -58,6 +59,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		79497C2F1EC79A4400066644 /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		79D6473D1EC2B9F30045822C /* MerchantManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MerchantManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79D647401EC2B9F30045822C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79D647421EC2B9F30045822C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				79D6478B1EC5514F0045822C /* DataPagingControl.swift */,
 				79D647961EC55FE90045822C /* SysConstants.swift */,
 				79D6479B1EC57E140045822C /* CacheManageProtocal.swift */,
+				79497C2F1EC79A4400066644 /* Enums.swift */,
 			);
 			name = Supports;
 			sourceTree = "<group>";
@@ -448,6 +451,7 @@
 				79D647971EC55FE90045822C /* SysConstants.swift in Sources */,
 				79D647AB1EC6D8B90045822C /* StoreGroup.swift in Sources */,
 				79D6479E1EC584700045822C /* ApiResponse.swift in Sources */,
+				79497C301EC79A4400066644 /* Enums.swift in Sources */,
 				79D6478A1EC550A10045822C /* PagingOption.swift in Sources */,
 				79D6479C1EC57E140045822C /* CacheManageProtocal.swift in Sources */,
 				79D6479A1EC576D20045822C /* Profile.swift in Sources */,
