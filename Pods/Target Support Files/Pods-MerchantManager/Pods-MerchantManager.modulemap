@@ -1,0 +1,6 @@
+framework module Pods_MerchantManager {
+  umbrella header "Pods-MerchantManager-umbrella.h"
+
+  export *
+  module * { export * }
+}
