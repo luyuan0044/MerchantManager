@@ -8,7 +8,7 @@
 
 import Foundation
 
-class OrderList : CacheManageProtocal {
+final class OrderList : CacheManageProtocal {
     
     static let shareInstance = OrderList()
     

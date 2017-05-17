@@ -54,6 +54,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func loginButtonAction(_ sender: UIButton) {
+        if let username = usernameTextField.text,
+            let password = passwordTextField.text {
+                AccountManager.shared.login(username: username, password: password)
+        }
+        
         performSegue(withIdentifier: "to_sw", sender: nil)
     }
     

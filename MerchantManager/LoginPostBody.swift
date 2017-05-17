@@ -18,5 +18,7 @@ class LoginPostBody {
 }
 
 extension LoginPostBody {
-    
+    convenience init(username: String, password: String) {
+        self.init()
+    }
 }

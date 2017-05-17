@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		79497C301EC79A4400066644 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79497C2F1EC79A4400066644 /* Enums.swift */; };
+		79A62BFA1ECAABE5009802EF /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A62BF91ECAABE5009802EF /* ApiManager.swift */; };
 		79D647411EC2B9F30045822C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D647401EC2B9F30045822C /* AppDelegate.swift */; };
 		79D647431EC2B9F30045822C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D647421EC2B9F30045822C /* LoginViewController.swift */; };
 		79D647461EC2B9F30045822C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79D647441EC2B9F30045822C /* Main.storyboard */; };
@@ -60,6 +61,7 @@
 
 /* Begin PBXFileReference section */
 		79497C2F1EC79A4400066644 /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		79A62BF91ECAABE5009802EF /* ApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		79D6473D1EC2B9F30045822C /* MerchantManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MerchantManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79D647401EC2B9F30045822C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79D647421EC2B9F30045822C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 			children = (
 				79D6477F1EC2E3720045822C /* AccountManager.swift */,
 				79D647811EC2E3DE0045822C /* OrderList.swift */,
+				79A62BF91ECAABE5009802EF /* ApiManager.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 				79D6478C1EC5514F0045822C /* DataPagingControl.swift in Sources */,
 				79D647951EC55BBE0045822C /* Order.swift in Sources */,
 				79D6477C1EC2D6E10045822C /* DashboardViewController.swift in Sources */,
+				79A62BFA1ECAABE5009802EF /* ApiManager.swift in Sources */,
 				79D647AD1EC6D9BA0045822C /* OauthKeyPair.swift in Sources */,
 				79D647801EC2E3720045822C /* AccountManager.swift in Sources */,
 				79D647A21EC6D4080045822C /* TaxClass.swift in Sources */,
