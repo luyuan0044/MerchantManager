@@ -22,27 +22,29 @@ final class AccountManager {
         
     }
     
-    //Implementation
+    //Mark:
+    var current: Profile?
     
+    //Mark: Implementation
+    func login (username: String, password: String, completion: @escaping (Bool) -> ()) {
+        let loginPostBody = LoginPostBody (username: "6049315255", password: "gp6049315255")
+        let path = BASE_URL.appendingPathComponent(REST_PATH_LOGIN)
+        let body = loginPostBody.toDictionary()
     
-    func login (username: String, password: String) {
-        DispatchQueue.global().sync {
-            let loginPostBody = LoginPostBody (username: "6049315255", password: "gp6049315255")
-            let path = BASE_URL.appendingPathComponent(REST_PATH_LOGIN)
-            let body = loginPostBody.toDictionary()
+        ApiManager.shared.startServerCall(url: path, method: .post, body: body) {
+            apiResponse in
             
-            print(body)
-        
-            let resultJson = ApiManager.shared.startServerCall(url: path, method: .post, body: body)
-            print(resultJson)
-            
-            /*
-            let response = ApiManager.shared.startServerCall(url: REST_PATH_LOGIN, method: .Post, body: loginPostBody)
-            
-            if let r = response {
-                print(r)
+            if let apiResponse = apiResponse {
+                let isSuccess = apiResponse.RC == .success
+                
+                if (isSuccess)
+                
+                
+                completion (isSuccess)
             }
-            */
+            else {
+                completion (false)
+            }
         }
     }
     

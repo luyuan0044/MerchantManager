@@ -12,11 +12,6 @@ import Alamofire
 
 //typealias DataCompletion = (Data?, Error?) -> Void
 
-enum httpRequestMethod: String {
-    case Post = "POST"
-    case Get = "GET"
-}
-
 class ApiManager {
     static var shared: ApiManager {
         return _shared
@@ -41,24 +36,30 @@ class ApiManager {
     }
     
     //Base api call functions
-    func startServerCallWithOauth(url: String, method: httpRequestMethod, body: Any?){
+    func startServerCallWithOauth(url: String, method: HTTPMethod, body: Any?){
         
     }
     
-    func startServerCall(url: URL, method: HTTPMethod, body: Parameters?) -> JSON? {
+    func startServerCall(url: URL, method: HTTPMethod, body: Parameters?, onCompletion: @escaping (ApiResponse?)->()) {
+        print("Request Url: \(url)  HTTPMethod: \(method)")
+        
+        if let body = body {
+            print("Post Body: \(body)")
+        }
+        
         var result: JSON?
         
         Alamofire.request(url, method: method, parameters: body, encoding: JSONEncoding.default, headers: nil).responseJSON(completionHandler: { response in
             switch response.result {
             case .success(let value):
-                let json = JSON(value)
-                //print(json)
-                result = json
+                result = JSON(value)
             case .failure(let error):
                 print(error)
             }
+            
+            let apiResponse = ApiResponse(result)
+            
+            onCompletion (apiResponse)
         })
-        
-        return result
     }
 }

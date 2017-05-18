@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 class PagingOption: NSObject {
     
@@ -16,4 +17,18 @@ class PagingOption: NSObject {
     var pageStart: Int = 0
     var pageEnd: Int = 0
     var total: Int = 0
+}
+
+extension PagingOption {
+    convenience init(json: JSON?) {
+        self.init()
+        
+        if let json = json {
+            self.page = json["page"].intValue
+            self.perPage = json["perPage"].intValue
+            self.pageStart = json["pageStart"].intValue
+            self.pageEnd = json["pageEnd"].intValue
+            self.total = json["total"].intValue
+        }
+    }
 }

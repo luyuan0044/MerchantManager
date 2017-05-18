@@ -16,3 +16,9 @@ enum orderStatus: Int {
     case canceled
     case closed
 }
+
+enum apiStatus: Int {
+    case unknownError = 0
+    case success = 200
+    case accessDenied = 403
+}

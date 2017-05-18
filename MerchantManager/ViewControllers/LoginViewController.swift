@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
+    @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
@@ -56,10 +58,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBAction func loginButtonAction(_ sender: UIButton) {
         if let username = usernameTextField.text,
             let password = passwordTextField.text {
-                AccountManager.shared.login(username: username, password: password)
+            
+            DispatchQueue.global().async {
+                AccountManager.shared.login(username: username, password: password) {
+                    isSuccess in
+                    
+                    print(isSuccess)
+                }
+            }
         }
-        
-        performSegue(withIdentifier: "to_sw", sender: nil)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
