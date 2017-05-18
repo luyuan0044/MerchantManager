@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SwiftyJSON
 import Alamofire
 
 //typealias DataCompletion = (Data?, Error?) -> Void
@@ -47,19 +46,20 @@ class ApiManager {
             print("Post Body: \(body)")
         }
         
-        var result: JSON?
-        
         Alamofire.request(url, method: method, parameters: body, encoding: JSONEncoding.default, headers: nil).responseJSON(completionHandler: { response in
+            
+            /*
             switch response.result {
             case .success(let value):
-                result = JSON(value)
+                result = nil
             case .failure(let error):
                 print(error)
             }
             
             let apiResponse = ApiResponse(result)
+            */
             
-            onCompletion (apiResponse)
+            onCompletion (nil)
         })
     }
 }

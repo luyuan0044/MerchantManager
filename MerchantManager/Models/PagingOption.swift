@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SwiftyJSON
 
 class PagingOption: NSObject {
     
@@ -19,6 +18,7 @@ class PagingOption: NSObject {
     var total: Int = 0
 }
 
+/*
 extension PagingOption {
     convenience init(json: JSON?) {
         self.init()
@@ -32,3 +32,4 @@ extension PagingOption {
         }
     }
 }
+*/

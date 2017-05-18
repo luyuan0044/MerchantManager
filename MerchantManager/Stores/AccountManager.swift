@@ -8,8 +8,6 @@
 
 import Foundation
 import Alamofire
-import SwiftyJSON
-
 final class AccountManager {
     
     static var shared: AccountManager {
@@ -36,8 +34,6 @@ final class AccountManager {
             
             if let apiResponse = apiResponse {
                 let isSuccess = apiResponse.RC == .success
-                
-                if (isSuccess)
                 
                 
                 completion (isSuccess)

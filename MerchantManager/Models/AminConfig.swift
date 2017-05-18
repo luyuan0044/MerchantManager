@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import Freddy
 
-class AdminConfig {
+final class AdminConfig {
     
     //Properties
     var key: String?
@@ -17,10 +18,15 @@ class AdminConfig {
     var tax_class: [TaxClass]?
 }
 
-/*
-extension AdminConfig {
-    convenience init(json: JSON) {
+
+extension AdminConfig : JSONDecodable {
+    convenience init(json: JSON) throws {
         self.init()
+        
+        key = try json.getString(at: "name")
+        secret = try json.getString(at: "name")
+        version = try json.getString(at: "name")
+        tax_class = try json.getArray(at: "tax_class").map(TaxClass.init)
     }
 }
- */
+

@@ -7,9 +7,9 @@
 //
 
 import Foundation
-import SwiftyJSON
+import Freddy
 
-class ApiResponse {
+final class ApiResponse {
     
     //Properties
     var RC: apiStatus = apiStatus.unknownError
@@ -17,23 +17,13 @@ class ApiResponse {
     var pagingOption: PagingOption?
 }
 
-extension ApiResponse {
-    convenience init(_ json: JSON?) {
+
+extension ApiResponse : JSONDecodable {
+    convenience init(json: JSON) throws {
         self.init()
         
-        if let json = json {
-            if let status = apiStatus(rawValue:  json["RC"].intValue) {
-                self.RC = status
-            }
-            
-            self.pagingOption = PagingOption (json: json["paging"])
-            
-            if let jsonDict = json["records"].dictionary {
-                
-            }
-            else if let jsonArray = json["records"].array{
-                
-            }
-        }
+        let rcInt = try json.getInt(at: "RC")
+        RC = apiStatus(rawValue: rcInt)!
+        records = try json.getan
     }
 }

@@ -9,12 +9,12 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-MerchantManager.xcscheme</key>
+		<key>Freddy.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>SwiftyJSON.xcscheme</key>
+		<key>Pods-MerchantManager.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -22,7 +22,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>14E122792758578DEC1413779353029E</key>
+		<key>2A33537101B5D2A26F862D5E9C8BB6B4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -32,7 +32,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B3BDA4EBCD305FE537CE06327668E2FC</key>
+		<key>92C978222374EEBB941EDA9BC290B8C7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
