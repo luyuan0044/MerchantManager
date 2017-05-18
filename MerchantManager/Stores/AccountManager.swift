@@ -8,6 +8,8 @@
 
 import Foundation
 import Alamofire
+import AlamofireObjectMapper
+
 final class AccountManager {
     
     static var shared: AccountManager {
@@ -28,20 +30,21 @@ final class AccountManager {
         let loginPostBody = LoginPostBody (username: "6049315255", password: "gp6049315255")
         let path = BASE_URL.appendingPathComponent(REST_PATH_LOGIN)
         let body = loginPostBody.toDictionary()
-    
-        ApiManager.shared.startServerCall(url: path, method: .post, body: body) {
-            apiResponse in
+        
+        Alamofire.request(path, method: .post, parameters: body, encoding: JSONEncoding.default, headers: nil).responseObject(completionHandler: {
+            (response: DataResponse<ApiResponse<LoginResponse>>) in
             
-            if let apiResponse = apiResponse {
-                let isSuccess = apiResponse.RC == .success
-                
-                
-                completion (isSuccess)
+            if let serverReturn = response.result.value {
+                if (serverReturn.getStatus() == apiStatus.success) {
+                    self.current = serverReturn.records?.profile
+                }
+                else {
+                    
+                }
             }
-            else {
-                completion (false)
-            }
-        }
+            
+            completion(true)
+        })
     }
     
     func logout () {

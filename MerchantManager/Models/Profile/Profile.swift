@@ -7,27 +7,31 @@
 //
 
 import Foundation
+import ObjectMapper
 
-class Profile {
+class Profile : Mappable {
     
     var id: Int = -1
     var first_name: String?
     var last_name: String?
     var email: String?
     var phone: PhoneComponents?
-    var groups: [StoreGroup]?
-    var current_group_id: Int?
+    var stores: [StoreGroup]?
+    var current_store: StoreGroup?
     var permission_level: Int?
-}
-
-/*
-extension Profile {
-    convenience init(json: JSON) throws {
-        self.init()
+    
+    required init?(map: Map) {
         
-        if let json = json {
-            print(json)
-        }
+    }
+    
+    func mapping(map: Map) {
+        id <- map["id"]
+        first_name <- map["first_name"]
+        last_name <- map["last_name"]
+        email <- map["email"]
+        phone <- map["phone"]
+        stores <- map["g_ids"]
+        current_store <- map["current_store"]
+        permission_level <- map["permission_level"]
     }
 }
- */

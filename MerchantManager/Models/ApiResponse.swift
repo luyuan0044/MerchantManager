@@ -7,23 +7,28 @@
 //
 
 import Foundation
-import Freddy
+import ObjectMapper
 
-final class ApiResponse {
+class ApiResponse <T: Mappable> : Mappable {
     
     //Properties
-    var RC: apiStatus = apiStatus.unknownError
-    var records: AnyObject?
+    var RC: Int = 0
     var pagingOption: PagingOption?
+    var records: T?
+    
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        RC <- map["RC"]
+        pagingOption <- map["pagingOption"]
+        records <- map["records"]
+    }
 }
 
-
-extension ApiResponse : JSONDecodable {
-    convenience init(json: JSON) throws {
-        self.init()
-        
-        let rcInt = try json.getInt(at: "RC")
-        RC = apiStatus(rawValue: rcInt)!
-        records = try json.getan
+extension ApiResponse {
+    func getStatus () -> apiStatus {
+        return apiStatus (rawValue: RC)!
     }
 }

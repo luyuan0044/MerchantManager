@@ -7,10 +7,20 @@
 //
 
 import Foundation
+import ObjectMapper
 
-class LoginResponse {
+class LoginResponse : Mappable {
     
     //Properties
     var profile: Profile?
     var oauth: OauthKeyPair?
+    
+    required init?(map: Map) {
+       
+    }
+    
+    func mapping(map: Map) {
+        profile <- map["profile"]
+        oauth <- map["oauth"]
+    }
 }

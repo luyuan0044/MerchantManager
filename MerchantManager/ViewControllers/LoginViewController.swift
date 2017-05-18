@@ -62,7 +62,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 AccountManager.shared.login(username: username, password: password) {
                     isSuccess in
                     
-                    print(isSuccess)
+                    print(AccountManager.shared.current?.first_name)
                 }
             }
         }

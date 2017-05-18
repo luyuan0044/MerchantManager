@@ -7,18 +7,20 @@
 //
 
 import Foundation
+import ObjectMapper
 
-class OauthKeyPair {
+class OauthKeyPair : Mappable {
     
     //Properties
     var key: String?
     var secret: String?
-}
-
-/*
-extension OauthKeyPair {
-    convenience init(json: JSON) {
-        self.init()
+    
+    required init(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        key <- map["key"]
+        secret <- map["secret"]
     }
 }
- */

@@ -7,19 +7,22 @@
 //
 
 import Foundation
+import ObjectMapper
 
-class StoreGroup {
+class StoreGroup : Mappable {
     
     //Properties
-    var id: Int = -1
-    var name: [String: String]?
-    var membership_level: Int?
-}
-
-/*
-extension StoreGroup {
-    convenience init(json: JSON) {
-        self.init()
+    var id: Int?
+    var name: String?
+    var status: Int?
+    
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        id <- map["id"]
+        name <- map["name"]
+        status <- map["status"]
     }
 }
- */

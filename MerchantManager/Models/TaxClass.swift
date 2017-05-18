@@ -7,22 +7,11 @@
 //
 
 import Foundation
-import Freddy
 
 final class TaxClass {
     
     //Properties
     var id: Int = -1
     var name: String?
-}
-
-
-extension TaxClass : JSONDecodable {
-    convenience init(json: JSON) throws {
-        self.init()
-        
-        id = try json.getInt(at: "id")
-        name = try json.getString(at: "name")
-    }
 }
 

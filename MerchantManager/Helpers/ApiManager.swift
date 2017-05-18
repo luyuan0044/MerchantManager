@@ -8,8 +8,7 @@
 
 import Foundation
 import Alamofire
-
-//typealias DataCompletion = (Data?, Error?) -> Void
+import AlamofireObjectMapper
 
 class ApiManager {
     static var shared: ApiManager {
@@ -39,27 +38,18 @@ class ApiManager {
         
     }
     
-    func startServerCall(url: URL, method: HTTPMethod, body: Parameters?, onCompletion: @escaping (ApiResponse?)->()) {
+    /*
+    func startServerCall (url: URL, method: HTTPMethod, body: Parameters?, onCompletion: @escaping (DataResponse<Any>?)->()) {
         print("Request Url: \(url)  HTTPMethod: \(method)")
         
         if let body = body {
             print("Post Body: \(body)")
         }
         
-        Alamofire.request(url, method: method, parameters: body, encoding: JSONEncoding.default, headers: nil).responseJSON(completionHandler: { response in
+        Alamofire.request(url, method: method, parameters: body, encoding: JSONEncoding.default, headers: nil).response(completionHandler: {response in
             
-            /*
-            switch response.result {
-            case .success(let value):
-                result = nil
-            case .failure(let error):
-                print(error)
-            }
-            
-            let apiResponse = ApiResponse(result)
-            */
-            
-            onCompletion (nil)
+            onCompletion(response)
         })
     }
+    */
 }
