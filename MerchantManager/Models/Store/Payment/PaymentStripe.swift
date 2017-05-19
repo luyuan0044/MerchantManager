@@ -10,10 +10,10 @@ import Foundation
 import ObjectMapper
 
 struct PaymentStripe : Mappable {
-    var merchant_name: String?
-    var api_key: String?
-    var transaction_type: String?
-    var card_types: [String]?
+    var merchantName: String?
+    var apiKey: String?
+    var transactionType: String?
+    var cardTypes: [String]?
     var enable: Bool = false
     
     init?(map: Map) {
@@ -21,10 +21,10 @@ struct PaymentStripe : Mappable {
     }
     
     mutating func mapping(map: Map) {
-        merchant_name <- map["mch_nm"]
-        api_key <- map["api_key"]
-        transaction_type <- map["txn_type"]
-        card_types <- map["card_types"]
+        merchantName <- map["mch_nm"]
+        apiKey <- map["api_key"]
+        transactionType <- map["txn_type"]
+        cardTypes <- map["card_types"]
         enable <- map["enabled"]
     }
 }

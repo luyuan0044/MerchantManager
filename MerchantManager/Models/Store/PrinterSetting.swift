@@ -10,11 +10,11 @@ import Foundation
 import ObjectMapper
 
 struct PrinterSetting : Mappable {
-    var auto_print_smartprinter: Bool = false
-    var auto_print_browswer: Bool = false
-    var primary_language: String?
-    var secondary_language: String?
-    var printer_model: String?
+    var autoPrintSmartprinter: Bool = false
+    var autoPrintBrowswer: Bool = false
+    var primaryLanguage: String?
+    var secondaryLanguage: String?
+    var printerModel: String?
     var username: String?
     var password: String?
     
@@ -23,11 +23,11 @@ struct PrinterSetting : Mappable {
     }
     
     mutating func mapping(map: Map) {
-        auto_print_smartprinter <- map["auto_print_sp"]
-        auto_print_browswer <- map["auto_print_browswer"]
-        primary_language <- map["sp_1st_lan"]
-        secondary_language <- map["sp_2nd_lan"]
-        printer_model <- map["sp_model"]
+        autoPrintSmartprinter <- map["auto_print_sp"]
+        autoPrintBrowswer <- map["auto_print_browswer"]
+        primaryLanguage <- map["sp_1st_lan"]
+        secondaryLanguage <- map["sp_2nd_lan"]
+        secondaryLanguage <- map["sp_model"]
         username <- map["sp_user"]
         password <- map["sp_pass"]
     }

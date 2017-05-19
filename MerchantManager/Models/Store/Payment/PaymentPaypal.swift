@@ -10,14 +10,14 @@ import Foundation
 import ObjectMapper
 
 struct PaymentPaypal : Mappable {
-    var merchant_name: String?
-    var merchant_phone: String?
+    var merchantName: String?
+    var merchantPhone: String?
     var partner: String?
-    var merchant_login_name: String?
+    var merchantLoginName: String?
     var username: String?
     var password: String?
-    var transaction_type: String?
-    var card_types: [String]?
+    var transactionType: String?
+    var cardTypes: [String]?
     var enable: Bool = false
     
     init?(map: Map) {
@@ -25,14 +25,14 @@ struct PaymentPaypal : Mappable {
     }
     
     mutating func mapping(map: Map) {
-        merchant_name <- map["mch_nm"]
-        merchant_phone <- map["mch_phone"]
+        merchantName <- map["mch_nm"]
+        merchantPhone <- map["mch_phone"]
         partner <- map["partner"]
-        merchant_login_name <- map["mch_login"]
+        merchantLoginName <- map["mch_login"]
         username <- map["api_user"]
         password <- map["api_pass"]
-        transaction_type <- map["txn_type"]
-        card_types <- map["card_types"]
+        transactionType <- map["txn_type"]
+        cardTypes <- map["card_types"]
         enable <- map["enabled"]
     }
 }

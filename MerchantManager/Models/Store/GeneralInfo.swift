@@ -12,37 +12,37 @@ import ObjectMapper
 struct GeneralInfo : Mappable {
     var name: [String: String]?
     var meta: String?
-    var meta_keywords: String?
-    var meta_title: String?
-    var meta_desc: String?
-    var tax_number: String?
+    var metaKeywords: String?
+    var metaTitle: String?
+    var metaDesc: String?
+    var taxNumber: String?
     var currency: Int?
     var owner: String?
     var phone: String?
     var description: [String: String]?
     var website: String?
-    var discount_info: String?
-    var public_announcement: String?
-    var language_list: [String]?
+    var discountInfo: String?
+    var publicAnnouncement: String?
+    var languageList: [String]?
     
     init?(map: Map) {
         
     }
     
     mutating func mapping(map: Map) {
-        name <- map["name"]
-        meta <- map["meta"]
-        meta_keywords <- map["meta_keywords"]
-        meta_title <- map["meta_title"]
-        meta_desc <- map["meta_desc"]
-        tax_number <- map["vat"]
+        name <- map["store_nm"]
+        meta <- map["store_meta"]
+        metaKeywords <- map["meta_keywords"]
+        metaTitle <- map["meta_title"]
+        metaDesc <- map["meta_desc"]
+        taxNumber <- map["vat"]
         currency <- map["currency"]
         owner <- map["owner"]
         phone <- map["phone"]
-        description <- map["description"]
+        description <- map["store_desc"]
         website <- map["url"]
-        discount_info <- map["discount_info"]
-        public_announcement <- map["public_announcement"]
-        language_list <- map["language_list"]
+        discountInfo <- map["store_di"]
+        publicAnnouncement <- map["store_pa"]
+        languageList <- map["lan_lst"]
     }
 }

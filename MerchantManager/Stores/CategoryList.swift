@@ -1,51 +1,43 @@
 //
-//  StoreManager.swift
+//  CategoryList.swift
 //  MerchantManager
 //
-//  Created by Richard Lu on 2017-05-18.
+//  Created by Richard Lu on 2017-05-19.
 //  Copyright © 2017 richard. All rights reserved.
 //
 
 import Foundation
-import Alamofire
-import OAuthSwiftAlamofire
-import OAuthSwift
 import ObjectMapper
 
-
-//Mark: Notifications
-let requsetStoreDataCompleteNotification = "requsetStoreDataCompleteNotification"
-
-class StoreManager {
-    static var shared: StoreManager {
+class CategoryList {
+    static var shared: CategoryList {
         return _shared
     }
     
-    private static let _shared = StoreManager()
+    private static let _shared = CategoryList()
     
-    private init() {
+    private init () {
         
     }
     
     //Mark: Properties
-    var current: Store?
+    
+    private var all: [Category]?
     
     //Mark: Implementation
-    func requestStoreData () {
+    
+    func requestCategoryListData () {
         
-        var status: apiStatus = apiStatus.unknownError
         let oauthClient = ApiManager.shared.getOauthClient()
-        let path = BASE_URL.appendingPathComponent(REST_PATH_STORE)
+        let path = BASE_URL.appendingPathComponent(REST_PATH_CATEGORY)
+        
         oauthClient.request(path.absoluteString, method: .GET, parameters: [:], headers: [:], body: nil, checkTokenExpiration: false, success: {
             response in
             do {
                 let jsonObject = try JSONSerialization.jsonObject(with: response.data, options: JSONSerialization.ReadingOptions.allowFragments)
-    
-                let storeObject = Mapper<ApiResponse<Store>>.init().map(JSON: jsonObject as! [String: AnyObject])
                 
-                if let object = storeObject {
-                    status = object.getStatus()
-                }
+                let categoryList = Mapper<ApiResponse<Category>>.init().map(JSON: jsonObject as! [String: AnyObject])
+                
             } catch {
                 print (error)
             }

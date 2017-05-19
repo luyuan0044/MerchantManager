@@ -11,13 +11,13 @@ import ObjectMapper
 
 class Profile : Mappable {
     var id: Int = 0
-    var first_name: String?
-    var last_name: String?
+    var firstName: String?
+    var lastName: String?
     var email: String?
     var phone: PhoneComponents?
     var stores: [StoreGroup]?
-    var current_store: StoreGroup?
-    var permission_level: Int?
+    var currentStore: StoreGroup?
+    var permissionLevel: Int?
     
     required init?(map: Map) {
         
@@ -25,12 +25,12 @@ class Profile : Mappable {
     
     func mapping(map: Map) {
         id <- map["id"]
-        first_name <- map["first_name"]
-        last_name <- map["last_name"]
+        firstName <- map["first_name"]
+        lastName <- map["last_name"]
         email <- map["email"]
         phone <- map["phone"]
         stores <- map["g_ids"]
-        current_store <- map["current_store"]
-        permission_level <- map["permission_level"]
+        currentStore <- map["current_store"]
+        permissionLevel <- map["permission_level"]
     }
 }

@@ -23,5 +23,9 @@ let REST_PATH_ACCOUNT_INFO = "api/rest/adm/v2/customerinfo"
 
 let REST_PATH_LOGIN = "api/rest/adm/v2/adminlogin"
 
+let REST_PATH_STORE = "api/rest/adm/v2/storedetails"
+
+let REST_PATH_CATEGORY = ""
+
 
 

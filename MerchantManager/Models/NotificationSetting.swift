@@ -10,21 +10,21 @@ import Foundation
 import ObjectMapper
 
 struct NotificationSetting : Mappable {
-    var notify_by_email: Bool = false
+    var notifyByEmail: Bool = false
     var email: [String] = []
-    var notify_by_text: Bool = false
+    var notifyByText: Bool = false
     var phone: [PhoneComponents] = []
-    var notify_by_push_notification: Bool = false
+    var notifyByPushNotification: Bool = false
     
     init?(map: Map) {
         
     }
     
     mutating func mapping(map: Map) {
-        notify_by_email <- map["notify_by_email"]
+        notifyByEmail <- map["notify_by_email"]
         email <- map["email"]
-        notify_by_text <- map["notify_by_text"]
+        notifyByText <- map["notify_by_text"]
         phone <- map["phone"]
-        notify_by_push_notification <- map["notify_by_push"]
+        notifyByPushNotification <- map["notify_by_push"]
     }
 }

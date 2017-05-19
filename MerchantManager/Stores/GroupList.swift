@@ -73,7 +73,8 @@ class GroupList : CacheManageProtocal {
         //load data based on current store status
         if current.getStatus() == groupStstus.approved {
             moreinfoQueue.async {
-                StoreManager.shared.startRequest ()
+                StoreManager.shared.requestStoreData ()
+                
             }
         } else {
             moreinfoQueue.async {

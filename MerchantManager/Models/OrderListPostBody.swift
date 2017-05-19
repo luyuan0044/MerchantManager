@@ -10,9 +10,9 @@ import Foundation
 
 class OrderListPostBody {
     
-    var search_condition: OrderListSearchCondition
+    var searchCondition: OrderListSearchCondition
     
     init(search_condition: OrderListSearchCondition) {
-        self.search_condition = search_condition
+        self.searchCondition = search_condition
     }
 }

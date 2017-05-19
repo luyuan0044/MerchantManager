@@ -13,7 +13,7 @@ struct OauthKeyPair : Mappable {
     
     //Properties
     var token: String?
-    var token_secret: String?
+    var tokenSecret: String?
     
     init(map: Map) {
         
@@ -21,6 +21,6 @@ struct OauthKeyPair : Mappable {
     
     mutating func mapping(map: Map) {
         token <- map["token"]
-        token_secret <- map["secret"]
+        tokenSecret <- map["secret"]
     }
 }

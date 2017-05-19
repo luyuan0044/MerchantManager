@@ -12,18 +12,18 @@ class Order {
     
     var id: Int = -1
     var status: Int = -1
-    var shipping_method: Int = -1
-    var payment_method: Int = -1
-    var create_at: NSDate?
+    var shippingMethod: Int = -1
+    var paymentMethod: Int = -1
+    var createAt: NSDate?
     var total: Double?
-    var bill_to: String?
-    var ship_to: String?
-    var store_name: String?
+    var billTo: String?
+    var shipTo: String?
+    var storeName: String?
     var phone: String?
     var email: String?
     var address: String?
     var table: String?
-    var expect_date: NSDate?
+    var expectDate: NSDate?
 }
 
 /*

@@ -23,6 +23,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view, typically from a nib.
         
         configUIComponents()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(handleLoginFinished), name: NSNotification.Name(rawValue: requsetStoreDataCompleteNotification), object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: requsetStoreDataCompleteNotification), object: self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,7 +68,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 AccountManager.shared.login(username: username, password: password) {
                     isSuccess in
                     
-                    
                 }
             }
         }
@@ -71,6 +76,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    func handleLoginFinished () {
+        performSegue(withIdentifier: "to_sw", sender: nil)
     }
 }
 

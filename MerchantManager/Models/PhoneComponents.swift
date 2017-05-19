@@ -12,17 +12,17 @@ import ObjectMapper
 class PhoneComponents : Mappable {
     
     //Properties
-    var phone_number: String?
-    var country_code: String?
-    var area_code: String?
+    var phoneNumber: String?
+    var countryCode: String?
+    var areaCode: String?
     
     required init(map: Map) {
         
     }
     
     func mapping(map: Map) {
-        phone_number <- map["phone_number"]
-        country_code <- map["country_code"]
-        area_code <- map["area_code"]
+        phoneNumber <- map["phone_number"]
+        countryCode <- map["country_code"]
+        areaCode <- map["area_code"]
     }
 }

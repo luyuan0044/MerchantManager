@@ -14,8 +14,8 @@ struct LoginPostBody : Mappable {
     //Properties
     var username: String = ""
     var password: String = ""
-    var device_token: String = ""
-    var mobile_os: String = "iOS"
+    var deviceToken: String = ""
+    var mobileOS: String = "iOS"
     
     init(username: String, password: String) {
         self.username = username
@@ -29,29 +29,7 @@ struct LoginPostBody : Mappable {
     mutating func mapping(map: Map) {
         username <- map["username"]
         password <- map["password"]
-        device_token <- map["device_token"]
-        mobile_os <- map["mobile_os"]
+        deviceToken <- map["device_token"]
+        mobileOS <- map["mobile_os"]
     }
 }
-
-/*
-extension LoginPostBody {
-    convenience init(username: String, password: String) {
-        self.init()
-        
-        self.username = username
-        self.password = password
-    }
-    
-    func toDictionary () -> Parameters {
-        let result: Parameters = [
-            "username": self.username,
-            "password": self.password,
-            "device_token": self.device_token,
-            "mobile_os": self.mobile_os
-        ]
-        
-        return result
-    }
-}
-*/

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1FFD378A7B5473A4A1499C88 /* Pods_MerchantManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C42E4CA0ED77F0447EE0381 /* Pods_MerchantManager.framework */; };
+		79817EF91ECF692D00DE5CD1 /* CategoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79817EF81ECF692D00DE5CD1 /* CategoryList.swift */; };
+		79817EFB1ECF6A5400DE5CD1 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79817EFA1ECF6A5400DE5CD1 /* Category.swift */; };
 		798F53A81ECC16A8003619B6 /* CacheManageProtocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798F53A31ECC16A8003619B6 /* CacheManageProtocal.swift */; };
 		798F53A91ECC16A8003619B6 /* DataPagingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798F53A41ECC16A8003619B6 /* DataPagingControl.swift */; };
 		798F53AA1ECC16A8003619B6 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798F53A51ECC16A8003619B6 /* Enums.swift */; };
@@ -75,6 +77,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		79817EF81ECF692D00DE5CD1 /* CategoryList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryList.swift; sourceTree = "<group>"; };
+		79817EFA1ECF6A5400DE5CD1 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		798F53A31ECC16A8003619B6 /* CacheManageProtocal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheManageProtocal.swift; sourceTree = "<group>"; };
 		798F53A41ECC16A8003619B6 /* DataPagingControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataPagingControl.swift; sourceTree = "<group>"; };
 		798F53A51ECC16A8003619B6 /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
@@ -201,6 +205,7 @@
 				798F53BA1ECC17BA003619B6 /* Profile */,
 				798F53BC1ECC17BA003619B6 /* Store */,
 				799F4CFD1ECE3F1000566685 /* Address.swift */,
+				79817EFA1ECF6A5400DE5CD1 /* Category.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -244,6 +249,7 @@
 				798F53CF1ECC1848003619B6 /* OrderList.swift */,
 				799F4CEF1ECE0DB400566685 /* GroupList.swift */,
 				799F4D0E1ECE52BF00566685 /* StoreManager.swift */,
+				79817EF81ECF692D00DE5CD1 /* CategoryList.swift */,
 			);
 			path = Stores;
 			sourceTree = "<group>";
@@ -588,6 +594,7 @@
 				799F4CFC1ECE392900566685 /* Hours.swift in Sources */,
 				798F53C71ECC17BA003619B6 /* PagingInfo.swift in Sources */,
 				799F4CFE1ECE3F1000566685 /* Address.swift in Sources */,
+				79817EF91ECF692D00DE5CD1 /* CategoryList.swift in Sources */,
 				798F53C91ECC17BA003619B6 /* PhoneComponents.swift in Sources */,
 				798F53CB1ECC17BA003619B6 /* StoreGroup.swift in Sources */,
 				799F4D0A1ECE4ED000566685 /* PaymentStripe.swift in Sources */,
@@ -613,6 +620,7 @@
 				798F53A91ECC16A8003619B6 /* DataPagingControl.swift in Sources */,
 				798F53AA1ECC16A8003619B6 /* Enums.swift in Sources */,
 				798F53C81ECC17BA003619B6 /* PagingOption.swift in Sources */,
+				79817EFB1ECF6A5400DE5CD1 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

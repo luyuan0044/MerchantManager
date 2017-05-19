@@ -32,7 +32,7 @@ class ApiManager {
     
     func setupOauthKeypair (_ oauthKeypair: OauthKeyPair) {
         accessToken = oauthKeypair.token!
-        accessTokenSecret = oauthKeypair.token_secret!
+        accessTokenSecret = oauthKeypair.tokenSecret!
     }
     
     var oauthClient: OAuthSwiftClient?

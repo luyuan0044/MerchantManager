@@ -10,11 +10,11 @@ import Foundation
 import ObjectMapper
 
 class Address: Mappable {
-    var postal_code: String?
+    var postalCode: String?
     var city: String?
     var street: String?
     var province: String?
-    var country_code: String?
+    var countryCode: String?
     var timezone: String?
     var latitude: Double?
     var longitude: Double?
@@ -24,11 +24,11 @@ class Address: Mappable {
     }
     
     func mapping(map: Map) {
-        postal_code <- map["postal_code"]
+        postalCode <- map["post_code"]
         city <- map["city"]
         street <- map["street"]
         province <- map["province"]
-        country_code <- map["country_code"]
+        countryCode <- map["country_code"]
         timezone <- map["timezone"]
         latitude <- map["lat"]
         longitude <- map["lon"]

@@ -11,30 +11,30 @@ import ObjectMapper
 
 struct Store: Mappable {
     var id: Int = 0
-    var general_info: GeneralInfo?
-    var menu_ids: [String]?
+    var generalInfo: GeneralInfo?
+    var menuIds: [String]?
     var images: [String]?
     var hours: StoreHours?
-    var store_address: Address?
-    var store_flag: String?
-    var ord_notification_setting: NotificationSetting?
-    var printer_setting: PrinterSetting?
-    var payment_setting: PaymentSetting?
+    var storeAddress: Address?
+    var storeFlag: String?
+    var ordNotificationSetting: NotificationSetting?
+    var printerSetting: PrinterSetting?
+    var paymentSetting: PaymentSetting?
     
     init?(map: Map) {
         
     }
     
     mutating func mapping(map: Map) {
-        id <- map["id"]
-        general_info <- map["general_info"]
-        menu_ids <- map["menu_ids"]
+        id <- map["g_id"]
+        generalInfo <- map["general_info"]
+        menuIds <- map["menu_ids"]
         images <- map["images"]
         hours <- map["hours"]
-        store_address <- map["store_addr"]
-        store_flag <- map["store_flag"]
-        ord_notification_setting <- map["ord_notification_setting"]
-        printer_setting <- map["printer_setting"]
-        payment_setting <- map["payment_setting"]
+        storeAddress <- map["store_addr"]
+        storeFlag <- map["store_flg"]
+        ordNotificationSetting <- map["ord_notification_setting"]
+        printerSetting <- map["printer_setting"]
+        paymentSetting <- map["payment_setting"]
     }
 }

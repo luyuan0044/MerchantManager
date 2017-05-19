@@ -11,17 +11,17 @@ import Foundation
 class OrderListSearchCondition : PagingInfo {
     
     //Properties
-    var ord_id: String?
+    var ordId: String?
     var status: Int = orderStatus.pending.rawValue
     var sort: Int?
     var phone: String?
     var printed: Bool = false
-    var s_date: NSDate?
-    var e_date: NSDate?
-    var min_amt: Double?
-    var max_amt: Double?
+    var startDate: NSDate?
+    var endDate: NSDate?
+    var minPrice: Double?
+    var maxPrice: Double?
     var name: String?
-    var s_method: Int?
+    var shippingMethod: Int?
     
     override init() {
         super.init()

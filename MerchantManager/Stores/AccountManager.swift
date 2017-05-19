@@ -30,7 +30,8 @@ final class AccountManager {
     
     func login (username: String, password: String, completion: @escaping (Bool) -> ()) {
         
-        let loginPostBody = LoginPostBody (username: "6049315255", password: "gp6049315255")
+//        let loginPostBody = LoginPostBody (username: "6049315255", password: "gp6049315255")
+        let loginPostBody = LoginPostBody (username: username, password: password)
         let body = loginPostBody.toJSON()
         let path = BASE_URL.appendingPathComponent(REST_PATH_LOGIN)
         
@@ -49,7 +50,7 @@ final class AccountManager {
                             GroupList.shared.setGroups(groups)
                             
                             //setup current group id and follow by loading additional information
-                            GroupList.shared.switchGroup(id: profile.current_store!.id)
+                            GroupList.shared.switchGroup(id: profile.currentStore!.id)
                         }
                     }
                     

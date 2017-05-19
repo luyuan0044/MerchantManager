@@ -10,8 +10,8 @@ import Foundation
 import ObjectMapper
 
 struct PaymentWechat : Mappable {
-    var app_id: String?
-    var merchant_id: String?
+    var appId: String?
+    var merchantId: String?
     var enable: Bool = false
     
     init?(map: Map) {
@@ -19,8 +19,8 @@ struct PaymentWechat : Mappable {
     }
     
     mutating func mapping(map: Map) {
-        app_id <- map["app_id"]
-        merchant_id <- map["mch_id"]
+        appId <- map["app_id"]
+        merchantId <- map["mch_id"]
         enable <- map["enabled"]
     }
 }
