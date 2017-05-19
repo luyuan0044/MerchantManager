@@ -14,6 +14,7 @@ class PhoneComponents : Mappable {
     //Properties
     var phone_number: String?
     var country_code: String?
+    var area_code: String?
     
     required init(map: Map) {
         
@@ -22,6 +23,6 @@ class PhoneComponents : Mappable {
     func mapping(map: Map) {
         phone_number <- map["phone_number"]
         country_code <- map["country_code"]
+        area_code <- map["area_code"]
     }
 }
-

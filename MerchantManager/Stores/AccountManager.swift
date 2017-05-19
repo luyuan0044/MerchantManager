@@ -34,16 +34,30 @@ final class AccountManager {
         Alamofire.request(path, method: .post, parameters: body, encoding: JSONEncoding.default, headers: nil).responseObject(completionHandler: {
             (response: DataResponse<ApiResponse<LoginResponse>>) in
             
+            print(response)
+            
             if let serverReturn = response.result.value {
                 if (serverReturn.getStatus() == apiStatus.success) {
-                    self.current = serverReturn.records?.profile
-                }
-                else {
+                    self.current = serverReturn.records!.profile
                     
+//                    print(serverReturn.records!.profile?.email)
+//                    print(serverReturn.records!.profile!.current_store!.status)
+                    
+                    
+                    if let profile = self.current {
+                        if let groups = profile.stores {
+                            GroupList.shared.setGroups(groups)
+                            GroupList.shared.switchGroup(id: profile.current_store!.id)
+                        }
+                    }
                 }
             }
             
             completion(true)
+        }).responseJSON(completionHandler: {
+            response in
+            
+            print(response)
         })
     }
     

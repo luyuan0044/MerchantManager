@@ -12,7 +12,7 @@ import ObjectMapper
 class OauthKeyPair : Mappable {
     
     //Properties
-    var key: String?
+    var token: String?
     var secret: String?
     
     required init(map: Map) {
@@ -20,7 +20,7 @@ class OauthKeyPair : Mappable {
     }
     
     func mapping(map: Map) {
-        key <- map["key"]
+        token <- map["token"]
         secret <- map["secret"]
     }
 }

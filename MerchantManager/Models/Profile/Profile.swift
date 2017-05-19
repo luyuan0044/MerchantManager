@@ -10,8 +10,7 @@ import Foundation
 import ObjectMapper
 
 class Profile : Mappable {
-    
-    var id: Int = -1
+    var id: Int = 0
     var first_name: String?
     var last_name: String?
     var email: String?

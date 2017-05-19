@@ -12,7 +12,7 @@ import ObjectMapper
 class StoreGroup : Mappable {
     
     //Properties
-    var id: Int?
+    var id: Int = 0
     var name: String?
     var status: Int?
     
@@ -24,5 +24,15 @@ class StoreGroup : Mappable {
         id <- map["id"]
         name <- map["name"]
         status <- map["status"]
+    }
+}
+
+extension StoreGroup {
+    func getStatus () -> groupStstus {
+        if let status = self.status {
+            return groupStstus(rawValue: status)!
+        } else {
+            return groupStstus.unknown
+        }
     }
 }

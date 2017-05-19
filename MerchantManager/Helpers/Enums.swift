@@ -22,3 +22,10 @@ enum apiStatus: Int {
     case success = 200
     case accessDenied = 403
 }
+
+enum groupStstus: Int {
+    case unknown = 0
+    case pending = 1
+    case rejected
+    case approved
+}

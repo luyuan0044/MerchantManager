@@ -35,6 +35,20 @@
 		798F53DF1ECC18EF003619B6 /* OrderListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798F53D81ECC18EF003619B6 /* OrderListViewController.swift */; };
 		798F53E01ECC18EF003619B6 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 798F53DB1ECC18EF003619B6 /* SWRevealViewController.m */; };
 		798F53E31ECC1F2A003619B6 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798F53E21ECC1F2A003619B6 /* ApiManager.swift */; };
+		799F4CF01ECE0DB400566685 /* GroupList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799F4CEF1ECE0DB400566685 /* GroupList.swift */; };
+		799F4CF51ECE2D2900566685 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799F4CF41ECE2D2900566685 /* Store.swift */; };
+		799F4CF81ECE2E2C00566685 /* GeneralInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799F4CF71ECE2E2C00566685 /* GeneralInfo.swift */; };
+		799F4CFA1ECE38D500566685 /* StoreHours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799F4CF91ECE38D500566685 /* StoreHours.swift */; };
+		799F4CFC1ECE392900566685 /* Hours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799F4CFB1ECE392900566685 /* Hours.swift */; };
+		799F4CFE1ECE3F1000566685 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799F4CFD1ECE3F1000566685 /* Address.swift */; };
+		799F4D011ECE409D00566685 /* NotificationSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799F4D001ECE409D00566685 /* NotificationSetting.swift */; };
+		799F4D031ECE419800566685 /* PrinterSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799F4D021ECE419800566685 /* PrinterSetting.swift */; };
+		799F4D051ECE431400566685 /* PaymentSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799F4D041ECE431400566685 /* PaymentSetting.swift */; };
+		799F4D081ECE468300566685 /* PaymentPaypal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799F4D071ECE468300566685 /* PaymentPaypal.swift */; };
+		799F4D0A1ECE4ED000566685 /* PaymentStripe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799F4D091ECE4ED000566685 /* PaymentStripe.swift */; };
+		799F4D0C1ECE4FC200566685 /* PaymentWechat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799F4D0B1ECE4FC200566685 /* PaymentWechat.swift */; };
+		799F4D0F1ECE52BF00566685 /* StoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799F4D0E1ECE52BF00566685 /* StoreManager.swift */; };
+		799F4D111ECE541200566685 /* AlamofireExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799F4D101ECE541200566685 /* AlamofireExtension.swift */; };
 		79D647411EC2B9F30045822C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D647401EC2B9F30045822C /* AppDelegate.swift */; };
 		79D647461EC2B9F30045822C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79D647441EC2B9F30045822C /* Main.storyboard */; };
 		79D647481EC2B9F30045822C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79D647471EC2B9F30045822C /* Assets.xcassets */; };
@@ -89,6 +103,20 @@
 		798F53DA1ECC18EF003619B6 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		798F53DB1ECC18EF003619B6 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		798F53E21ECC1F2A003619B6 /* ApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
+		799F4CEF1ECE0DB400566685 /* GroupList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupList.swift; sourceTree = "<group>"; };
+		799F4CF41ECE2D2900566685 /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Store.swift; path = MerchantManager/Models/Store.swift; sourceTree = SOURCE_ROOT; };
+		799F4CF71ECE2E2C00566685 /* GeneralInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralInfo.swift; sourceTree = "<group>"; };
+		799F4CF91ECE38D500566685 /* StoreHours.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreHours.swift; sourceTree = "<group>"; };
+		799F4CFB1ECE392900566685 /* Hours.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Hours.swift; path = Store/Hours.swift; sourceTree = "<group>"; };
+		799F4CFD1ECE3F1000566685 /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		799F4D001ECE409D00566685 /* NotificationSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationSetting.swift; path = ../NotificationSetting.swift; sourceTree = "<group>"; };
+		799F4D021ECE419800566685 /* PrinterSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrinterSetting.swift; sourceTree = "<group>"; };
+		799F4D041ECE431400566685 /* PaymentSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentSetting.swift; sourceTree = "<group>"; };
+		799F4D071ECE468300566685 /* PaymentPaypal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentPaypal.swift; sourceTree = "<group>"; };
+		799F4D091ECE4ED000566685 /* PaymentStripe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentStripe.swift; sourceTree = "<group>"; };
+		799F4D0B1ECE4FC200566685 /* PaymentWechat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentWechat.swift; sourceTree = "<group>"; };
+		799F4D0E1ECE52BF00566685 /* StoreManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreManager.swift; sourceTree = "<group>"; };
+		799F4D101ECE541200566685 /* AlamofireExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireExtension.swift; sourceTree = "<group>"; };
 		79D6473D1EC2B9F30045822C /* MerchantManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MerchantManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79D647401EC2B9F30045822C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79D647451EC2B9F30045822C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -150,6 +178,7 @@
 				798F53A51ECC16A8003619B6 /* Enums.swift */,
 				798F53A61ECC16A8003619B6 /* SysConstants.swift */,
 				798F53A71ECC16A8003619B6 /* UIConstants.swift */,
+				799F4D101ECE541200566685 /* AlamofireExtension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -157,6 +186,7 @@
 		798F53AD1ECC17BA003619B6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				799F4CFB1ECE392900566685 /* Hours.swift */,
 				798F53AE1ECC17BA003619B6 /* AminConfig.swift */,
 				798F53AF1ECC17BA003619B6 /* ApiResponse.swift */,
 				798F53B01ECC17BA003619B6 /* LoginPostBody.swift */,
@@ -169,6 +199,7 @@
 				798F53B21ECC17BA003619B6 /* Order */,
 				798F53BA1ECC17BA003619B6 /* Profile */,
 				798F53BC1ECC17BA003619B6 /* Store */,
+				799F4CFD1ECE3F1000566685 /* Address.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -194,7 +225,14 @@
 		798F53BC1ECC17BA003619B6 /* Store */ = {
 			isa = PBXGroup;
 			children = (
+				799F4D061ECE460D00566685 /* Payment */,
+				799F4D001ECE409D00566685 /* NotificationSetting.swift */,
+				799F4CF41ECE2D2900566685 /* Store.swift */,
 				798F53BD1ECC17BA003619B6 /* StoreGroup.swift */,
+				799F4CF71ECE2E2C00566685 /* GeneralInfo.swift */,
+				799F4CF91ECE38D500566685 /* StoreHours.swift */,
+				799F4D021ECE419800566685 /* PrinterSetting.swift */,
+				799F4D041ECE431400566685 /* PaymentSetting.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -204,6 +242,8 @@
 			children = (
 				798F53CE1ECC1848003619B6 /* AccountManager.swift */,
 				798F53CF1ECC1848003619B6 /* OrderList.swift */,
+				799F4CEF1ECE0DB400566685 /* GroupList.swift */,
+				799F4D0E1ECE52BF00566685 /* StoreManager.swift */,
 			);
 			path = Stores;
 			sourceTree = "<group>";
@@ -250,6 +290,16 @@
 			children = (
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		799F4D061ECE460D00566685 /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				799F4D071ECE468300566685 /* PaymentPaypal.swift */,
+				799F4D091ECE4ED000566685 /* PaymentStripe.swift */,
+				799F4D0B1ECE4FC200566685 /* PaymentWechat.swift */,
+			);
+			path = Payment;
 			sourceTree = "<group>";
 		};
 		79D647341EC2B9F30045822C = {
@@ -522,29 +572,43 @@
 			buildActionMask = 2147483647;
 			files = (
 				798F53C11ECC17BA003619B6 /* LoginPostBody.swift in Sources */,
+				799F4CF81ECE2E2C00566685 /* GeneralInfo.swift in Sources */,
 				798F53DC1ECC18EF003619B6 /* DashboardViewController.swift in Sources */,
+				799F4D0F1ECE52BF00566685 /* StoreManager.swift in Sources */,
 				798F53BF1ECC17BA003619B6 /* AminConfig.swift in Sources */,
 				798F53C41ECC17BA003619B6 /* Order.swift in Sources */,
+				799F4D031ECE419800566685 /* PrinterSetting.swift in Sources */,
 				798F53CA1ECC17BA003619B6 /* Profile.swift in Sources */,
 				798F53E01ECC18EF003619B6 /* SWRevealViewController.m in Sources */,
 				798F53C21ECC17BA003619B6 /* LoginResponse.swift in Sources */,
+				799F4D111ECE541200566685 /* AlamofireExtension.swift in Sources */,
 				798F53AB1ECC16A8003619B6 /* SysConstants.swift in Sources */,
+				799F4CFA1ECE38D500566685 /* StoreHours.swift in Sources */,
+				799F4D081ECE468300566685 /* PaymentPaypal.swift in Sources */,
+				799F4CFC1ECE392900566685 /* Hours.swift in Sources */,
 				798F53C71ECC17BA003619B6 /* PagingInfo.swift in Sources */,
+				799F4CFE1ECE3F1000566685 /* Address.swift in Sources */,
 				798F53C91ECC17BA003619B6 /* PhoneComponents.swift in Sources */,
 				798F53CB1ECC17BA003619B6 /* StoreGroup.swift in Sources */,
+				799F4D0A1ECE4ED000566685 /* PaymentStripe.swift in Sources */,
 				798F53AC1ECC16A8003619B6 /* UIConstants.swift in Sources */,
 				798F53C61ECC17BA003619B6 /* OrderListPostBody.swift in Sources */,
 				798F53DD1ECC18EF003619B6 /* LoginViewController.swift in Sources */,
 				798F53C01ECC17BA003619B6 /* ApiResponse.swift in Sources */,
+				799F4CF51ECE2D2900566685 /* Store.swift in Sources */,
 				798F53C51ECC17BA003619B6 /* OrderListSearchCondition.swift in Sources */,
+				799F4D011ECE409D00566685 /* NotificationSetting.swift in Sources */,
 				798F53DF1ECC18EF003619B6 /* OrderListViewController.swift in Sources */,
 				798F53A81ECC16A8003619B6 /* CacheManageProtocal.swift in Sources */,
 				798F53C31ECC17BA003619B6 /* OauthKeyPair.swift in Sources */,
 				798F53DE1ECC18EF003619B6 /* MenuTableViewController.swift in Sources */,
+				799F4D051ECE431400566685 /* PaymentSetting.swift in Sources */,
 				79D647411EC2B9F30045822C /* AppDelegate.swift in Sources */,
 				798F53D11ECC1848003619B6 /* OrderList.swift in Sources */,
+				799F4D0C1ECE4FC200566685 /* PaymentWechat.swift in Sources */,
 				798F53CC1ECC17BA003619B6 /* TaxClass.swift in Sources */,
 				798F53D01ECC1848003619B6 /* AccountManager.swift in Sources */,
+				799F4CF01ECE0DB400566685 /* GroupList.swift in Sources */,
 				798F53E31ECC1F2A003619B6 /* ApiManager.swift in Sources */,
 				798F53A91ECC16A8003619B6 /* DataPagingControl.swift in Sources */,
 				798F53AA1ECC16A8003619B6 /* Enums.swift in Sources */,
