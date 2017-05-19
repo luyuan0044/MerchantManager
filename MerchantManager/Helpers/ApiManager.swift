@@ -9,6 +9,8 @@
 import Foundation
 import Alamofire
 import AlamofireObjectMapper
+import OAuthSwiftAlamofire
+import OAuthSwift
 
 class ApiManager {
     static var shared: ApiManager {
@@ -33,10 +35,15 @@ class ApiManager {
         accessToken = nil
     }
     
-    //Base api call functions
-    func startServerCallWithOauth(url: String, method: HTTPMethod, body: Any?){
+    
+    func getOauthApiHeader () {
+        
+
+        
         
     }
+    
+    
     
     /*
     func startServerCall (url: URL, method: HTTPMethod, body: Parameters?, onCompletion: @escaping (DataResponse<Any>?)->()) {

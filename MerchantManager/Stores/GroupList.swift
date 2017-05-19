@@ -29,7 +29,7 @@ class GroupList : CacheManageProtocal {
     
     var current: StoreGroup? {
         get {
-            guard self.all == nil else {
+            if self.all == nil  {
                 return nil
             }
             
@@ -73,7 +73,7 @@ class GroupList : CacheManageProtocal {
         //load data based on current store status
         if current.getStatus() == groupStstus.approved {
             moreinfoQueue.async {
-//                startRequest ()
+                StoreManager.shared.startRequest ()
             }
         } else {
             moreinfoQueue.async {

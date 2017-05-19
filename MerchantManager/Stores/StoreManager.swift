@@ -8,6 +8,8 @@
 
 import Foundation
 import Alamofire
+import OAuthSwiftAlamofire
+import OAuthSwift
 
 class StoreManager {
     static var shared: StoreManager {
@@ -25,6 +27,30 @@ class StoreManager {
     
     //Mark: Implementation
     func startRequest () {
-       // Alamofire.request(., method: <#T##HTTPMethod#>, parameters: <#T##Parameters?#>, encoding: <#T##ParameterEncoding#>, headers: <#T##HTTPHeaders?#>)
+        let client = OAuthSwiftClient (consumerKey: "8fb7ec71f8b4e1f2ec28d2f8c3f7785a", consumerSecret: "af035f0f340e090d5b51870f9a168acd")
+        client.credential.oauthToken = (AccountManager.shared.oauth?.token!)!
+        client.credential.oauthTokenSecret = (AccountManager.shared.oauth?.secret!)!
+        
+        /*
+        client.makeRequest("https://api.goopter.com/api/rest/adm/v2/storedetails", method: .GET, parameters: [:], headers: [:], body: nil, success: {
+            response in
+            
+            print(response)
+        })
+        */
+        client.request("https://api.goopter.com/api/rest/adm/v2/storedetails", method: .GET, parameters: [:], headers: [:], body: nil, checkTokenExpiration: false, success: {
+            response in
+            
+            do {
+                let jsonObject = try JSONSerialization.jsonObject(with: response.data, options: JSONSerialization.ReadingOptions.allowFragments)
+                print(jsonObject)
+            } catch {
+                print (error)
+            }
+        }, failure: {
+            response in
+            
+            print (response)
+        })
     }
 }

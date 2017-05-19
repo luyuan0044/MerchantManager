@@ -25,6 +25,8 @@ final class AccountManager {
     //Mark:
     var current: Profile?
     
+    var oauth: OauthKeyPair?
+    
     //Mark: Implementation
     func login (username: String, password: String, completion: @escaping (Bool) -> ()) {
         let loginPostBody = LoginPostBody (username: "6049315255", password: "gp6049315255")
@@ -49,7 +51,11 @@ final class AccountManager {
                             GroupList.shared.setGroups(groups)
                             GroupList.shared.switchGroup(id: profile.current_store!.id)
                         }
+                        
+                        
                     }
+                    
+                    self.oauth = serverReturn.records?.oauth
                 }
             }
             
