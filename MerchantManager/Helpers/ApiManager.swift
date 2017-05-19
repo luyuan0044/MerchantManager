@@ -23,40 +23,33 @@ class ApiManager {
         
     }
     
-    var consumerKey: String?
-    var consumerSecret: String?
+    //Keypairs
+    private var consumerKey = "8fb7ec71f8b4e1f2ec28d2f8c3f7785a"
+    private var consumerSecret = "af035f0f340e090d5b51870f9a168acd"
     
-    var accessKey: String?
-    var accessToken: String?
+    private var accessToken = ""
+    private var accessTokenSecret = ""
+    
+    func setupOauthKeypair (_ oauthKeypair: OauthKeyPair) {
+        accessToken = oauthKeypair.token!
+        accessTokenSecret = oauthKeypair.token_secret!
+    }
+    
+    var oauthClient: OAuthSwiftClient?
+    func getOauthClient () -> OAuthSwiftClient {
+        if oauthClient == nil {
+            oauthClient = OAuthSwiftClient (consumerKey: consumerKey, consumerSecret: consumerSecret)
+            oauthClient!.credential.oauthToken = accessToken
+            oauthClient!.credential.oauthTokenSecret = accessTokenSecret
+        }
+        
+        return oauthClient!
+    }
     
     //Clean up access key pairs
     func cleanup () {
-        accessKey = nil
-        accessToken = nil
+        accessToken = ""
+        accessTokenSecret = ""
+        oauthClient = nil
     }
-    
-    
-    func getOauthApiHeader () {
-        
-
-        
-        
-    }
-    
-    
-    
-    /*
-    func startServerCall (url: URL, method: HTTPMethod, body: Parameters?, onCompletion: @escaping (DataResponse<Any>?)->()) {
-        print("Request Url: \(url)  HTTPMethod: \(method)")
-        
-        if let body = body {
-            print("Post Body: \(body)")
-        }
-        
-        Alamofire.request(url, method: method, parameters: body, encoding: JSONEncoding.default, headers: nil).response(completionHandler: {response in
-            
-            onCompletion(response)
-        })
-    }
-    */
 }

@@ -84,7 +84,7 @@
 		798F53AF1ECC17BA003619B6 /* ApiResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiResponse.swift; sourceTree = "<group>"; };
 		798F53B01ECC17BA003619B6 /* LoginPostBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPostBody.swift; sourceTree = "<group>"; };
 		798F53B11ECC17BA003619B6 /* LoginResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
-		798F53B31ECC17BA003619B6 /* OauthKeyPair.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OauthKeyPair.swift; sourceTree = "<group>"; };
+		798F53B31ECC17BA003619B6 /* OauthKeyPair.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OauthKeyPair.swift; path = Order/OauthKeyPair.swift; sourceTree = "<group>"; };
 		798F53B41ECC17BA003619B6 /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		798F53B51ECC17BA003619B6 /* OrderListSearchCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderListSearchCondition.swift; sourceTree = "<group>"; };
 		798F53B61ECC17BA003619B6 /* OrderListPostBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderListPostBody.swift; sourceTree = "<group>"; };
@@ -196,6 +196,7 @@
 				798F53B81ECC17BA003619B6 /* PagingOption.swift */,
 				798F53B91ECC17BA003619B6 /* PhoneComponents.swift */,
 				798F53BE1ECC17BA003619B6 /* TaxClass.swift */,
+				798F53B31ECC17BA003619B6 /* OauthKeyPair.swift */,
 				798F53B21ECC17BA003619B6 /* Order */,
 				798F53BA1ECC17BA003619B6 /* Profile */,
 				798F53BC1ECC17BA003619B6 /* Store */,
@@ -207,7 +208,6 @@
 		798F53B21ECC17BA003619B6 /* Order */ = {
 			isa = PBXGroup;
 			children = (
-				798F53B31ECC17BA003619B6 /* OauthKeyPair.swift */,
 				798F53B41ECC17BA003619B6 /* Order.swift */,
 				798F53B51ECC17BA003619B6 /* OrderListSearchCondition.swift */,
 			);

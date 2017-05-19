@@ -9,18 +9,18 @@
 import Foundation
 import ObjectMapper
 
-class OauthKeyPair : Mappable {
+struct OauthKeyPair : Mappable {
     
     //Properties
     var token: String?
-    var secret: String?
+    var token_secret: String?
     
-    required init(map: Map) {
+    init(map: Map) {
         
     }
     
-    func mapping(map: Map) {
+    mutating func mapping(map: Map) {
         token <- map["token"]
-        secret <- map["secret"]
+        token_secret <- map["secret"]
     }
 }

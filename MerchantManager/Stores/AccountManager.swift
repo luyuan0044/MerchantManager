@@ -22,44 +22,44 @@ final class AccountManager {
         
     }
     
-    //Mark:
+    //Mark: Properties
+    
     var current: Profile?
     
-    var oauth: OauthKeyPair?
-    
     //Mark: Implementation
+    
     func login (username: String, password: String, completion: @escaping (Bool) -> ()) {
+        
         let loginPostBody = LoginPostBody (username: "6049315255", password: "gp6049315255")
+        let body = loginPostBody.toJSON()
         let path = BASE_URL.appendingPathComponent(REST_PATH_LOGIN)
-        let body = loginPostBody.toDictionary()
         
         Alamofire.request(path, method: .post, parameters: body, encoding: JSONEncoding.default, headers: nil).responseObject(completionHandler: {
             (response: DataResponse<ApiResponse<LoginResponse>>) in
             
             print(response)
             
+            //more safeguard for value check and setup
             if let serverReturn = response.result.value {
                 if (serverReturn.getStatus() == apiStatus.success) {
                     self.current = serverReturn.records!.profile
                     
-//                    print(serverReturn.records!.profile?.email)
-//                    print(serverReturn.records!.profile!.current_store!.status)
-                    
-                    
                     if let profile = self.current {
                         if let groups = profile.stores {
                             GroupList.shared.setGroups(groups)
+                            
+                            //setup current group id and follow by loading additional information
                             GroupList.shared.switchGroup(id: profile.current_store!.id)
                         }
-                        
-                        
                     }
                     
-                    self.oauth = serverReturn.records?.oauth
+                    //setup keypair to ApiManager
+                    ApiManager.shared.setupOauthKeypair(serverReturn.records!.oauth!)
                 }
             }
             
             completion(true)
+            
         }).responseJSON(completionHandler: {
             response in
             

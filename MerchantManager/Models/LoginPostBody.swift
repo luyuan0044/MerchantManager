@@ -7,17 +7,34 @@
 //
 
 import Foundation
-import Alamofire
+import ObjectMapper
 
-class LoginPostBody {
+struct LoginPostBody : Mappable {
     
     //Properties
     var username: String = ""
     var password: String = ""
     var device_token: String = ""
     var mobile_os: String = "iOS"
+    
+    init(username: String, password: String) {
+        self.username = username
+        self.password = password
+    }
+    
+    init?(map: Map) {
+        
+    }
+    
+    mutating func mapping(map: Map) {
+        username <- map["username"]
+        password <- map["password"]
+        device_token <- map["device_token"]
+        mobile_os <- map["mobile_os"]
+    }
 }
 
+/*
 extension LoginPostBody {
     convenience init(username: String, password: String) {
         self.init()
@@ -37,3 +54,4 @@ extension LoginPostBody {
         return result
     }
 }
+*/

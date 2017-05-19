@@ -10,6 +10,7 @@ import Foundation
 import Alamofire
 import OAuthSwiftAlamofire
 import OAuthSwift
+import ObjectMapper
 
 class StoreManager {
     static var shared: StoreManager {
@@ -27,23 +28,13 @@ class StoreManager {
     
     //Mark: Implementation
     func startRequest () {
-        let client = OAuthSwiftClient (consumerKey: "8fb7ec71f8b4e1f2ec28d2f8c3f7785a", consumerSecret: "af035f0f340e090d5b51870f9a168acd")
-        client.credential.oauthToken = (AccountManager.shared.oauth?.token!)!
-        client.credential.oauthTokenSecret = (AccountManager.shared.oauth?.secret!)!
-        
-        /*
-        client.makeRequest("https://api.goopter.com/api/rest/adm/v2/storedetails", method: .GET, parameters: [:], headers: [:], body: nil, success: {
+        let oauthClient = ApiManager.shared.getOauthClient()
+        oauthClient.request("https://api.goopter.com/api/rest/adm/v2/storedetails", method: .GET, parameters: [:], headers: [:], body: nil, checkTokenExpiration: false, success: {
             response in
-            
-            print(response)
-        })
-        */
-        client.request("https://api.goopter.com/api/rest/adm/v2/storedetails", method: .GET, parameters: [:], headers: [:], body: nil, checkTokenExpiration: false, success: {
-            response in
-            
             do {
                 let jsonObject = try JSONSerialization.jsonObject(with: response.data, options: JSONSerialization.ReadingOptions.allowFragments)
                 print(jsonObject)
+                let storeObject = Mapper<ApiResponse<Store>>.init().map(JSON: jsonObject as! [String: AnyObject])
             } catch {
                 print (error)
             }
