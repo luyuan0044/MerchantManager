@@ -120,7 +120,7 @@ class CategoryList {
         }
         
         //move category
-        var movedCategory = categoriesOnView![fromIndex]
+        let movedCategory = categoriesOnView![fromIndex]
         categoriesOnView!.remove(at: fromIndex)
         categoriesOnView!.insert(movedCategory, at: toIndex)
         
