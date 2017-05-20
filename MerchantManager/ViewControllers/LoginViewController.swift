@@ -66,10 +66,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if let username = usernameTextField.text,
             let password = passwordTextField.text {
             
+            //show loading box
+            BasicLaodingView.shared.showProgressView(view)
+            
             DispatchQueue.global().async {
                 AccountManager.shared.login(username: username, password: password) {
                     isSuccess in
                     
+                    if !isSuccess {
+                        BasicLaodingView.shared.hideProgressView()
+                    }
                 }
             }
         }
@@ -81,6 +87,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     func handleLoginFinished () {
+        BasicLaodingView.shared.hideProgressView()
         performSegue(withIdentifier: "to_sw", sender: nil)
     }
 }

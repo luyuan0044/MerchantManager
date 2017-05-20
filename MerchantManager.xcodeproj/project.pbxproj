@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1FFD378A7B5473A4A1499C88 /* Pods_MerchantManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C42E4CA0ED77F0447EE0381 /* Pods_MerchantManager.framework */; };
+		791CD3DE1ED0BDF80082984A /* BaiscLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791CD3DD1ED0BDF80082984A /* BaiscLoadingView.swift */; };
 		79817EF91ECF692D00DE5CD1 /* CategoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79817EF81ECF692D00DE5CD1 /* CategoryList.swift */; };
 		79817EFB1ECF6A5400DE5CD1 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79817EFA1ECF6A5400DE5CD1 /* Category.swift */; };
 		79817EFE1ECFA5CD00DE5CD1 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79817EFD1ECFA5CD00DE5CD1 /* CategoryTableViewController.swift */; };
@@ -78,6 +79,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		791CD3DD1ED0BDF80082984A /* BaiscLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaiscLoadingView.swift; sourceTree = "<group>"; };
 		79817EF81ECF692D00DE5CD1 /* CategoryList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryList.swift; sourceTree = "<group>"; };
 		79817EFA1ECF6A5400DE5CD1 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		79817EFD1ECFA5CD00DE5CD1 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
@@ -305,6 +307,7 @@
 		798F53E11ECC1969003619B6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				791CD3DD1ED0BDF80082984A /* BaiscLoadingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -634,6 +637,7 @@
 				798F53AA1ECC16A8003619B6 /* Enums.swift in Sources */,
 				798F53C81ECC17BA003619B6 /* PagingOption.swift in Sources */,
 				79817EFB1ECF6A5400DE5CD1 /* Category.swift in Sources */,
+				791CD3DE1ED0BDF80082984A /* BaiscLoadingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

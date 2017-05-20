@@ -122,12 +122,15 @@ class OrderListViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     private func loadData (withCachedClear: Bool) {
+        
+        BasicLaodingView.shared.showProgressView(self.view)
         statusSegButton.isUserInteractionEnabled = false
         DispatchQueue.global().async {
             let result = OrderList.shareInstance.LoadOrderList(withCachedClear: withCachedClear)
             self.orders = result
             
             DispatchQueue.main.async {
+                BasicLaodingView.shared.hideProgressView()
                 self.statusSegButton.isUserInteractionEnabled = true
                 self.RefreshData()
             }
