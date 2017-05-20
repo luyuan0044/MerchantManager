@@ -69,7 +69,9 @@ class CategoryList {
         return all!
     }
     
-    func startEdit () {
-        
+    func move (fromPosition: Int, to: Int) {
+        let movedCategory = all![fromPosition]
+        all!.remove(at: fromPosition)
+        all!.insert(movedCategory, at: to)
     }
 }

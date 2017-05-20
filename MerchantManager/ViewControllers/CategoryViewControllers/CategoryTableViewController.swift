@@ -12,12 +12,16 @@ class CategoryTableViewController: UITableViewController {
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
-    var categories: [Category] = CategoryList.shared.getAllCategories ()
+    var categories: [Category] {
+        return CategoryList.shared.getAllCategories ()
+    }
     
     let categoryCellIdentifier = "categoryCell"
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.isEditing = true
         
         self.title = NSLocalizedString("categories", comment: "")
         
@@ -85,9 +89,7 @@ class CategoryTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
         tableView.beginUpdates()
-        let movedCategory = categories[fromIndexPath.row]
-        categories.remove(at: fromIndexPath.row)
-        categories.insert(movedCategory, at: to.row)
+        CategoryList.shared.move(fromPosition: fromIndexPath.row, to: to.row)
         tableView.moveRow(at: fromIndexPath, to: to)
         tableView.endUpdates()
     }

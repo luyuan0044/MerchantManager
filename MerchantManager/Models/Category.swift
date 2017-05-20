@@ -37,3 +37,14 @@ struct Category : Mappable {
         publishedAt <- (map["published_at"], DateTransform())
     }
 }
+
+extension Category {
+    
+    mutating func updatePosition (_ position: Int) {
+        self.position = position
+    }
+    
+    mutating func updatePath () {
+        
+    }
+}
