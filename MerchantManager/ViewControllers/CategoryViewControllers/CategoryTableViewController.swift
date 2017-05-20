@@ -12,10 +12,6 @@ class CategoryTableViewController: UITableViewController {
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
-    var categories: [Category] {
-        return CategoryList.shared.getAllCategories ()
-    }
-    
     let categoryCellIdentifier = "categoryCell"
 
     override func viewDidLoad() {
@@ -49,7 +45,7 @@ class CategoryTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return categories.count
+        return CategoryList.shared.getCategoriesOnView().count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -59,7 +55,7 @@ class CategoryTableViewController: UITableViewController {
             cell = UITableViewCell (style: .default, reuseIdentifier: categoryCellIdentifier)
         }
 
-        var category = categories[indexPath.row]
+        var category = CategoryList.shared.getCategoriesOnView()[indexPath.row]
         
         cell!.textLabel!.text = category.name!["en"]
 
@@ -89,7 +85,7 @@ class CategoryTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
         tableView.beginUpdates()
-        CategoryList.shared.move(fromPosition: fromIndexPath.row, to: to.row)
+        CategoryList.shared.move(fromIndex: fromIndexPath.row, toIndex: to.row)
         tableView.moveRow(at: fromIndexPath, to: to)
         tableView.endUpdates()
     }

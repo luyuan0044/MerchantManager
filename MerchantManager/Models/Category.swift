@@ -40,8 +40,16 @@ struct Category : Mappable {
 
 extension Category {
     
-    mutating func updatePosition (_ position: Int) {
+    mutating func updatePosition (position: Int) {
         self.position = position
+        
+        print("Move \(name?["en"]) to position \(self.position)")
+    }
+    
+    mutating func updatePosition (shift: Int) {
+        self.position += shift
+        
+        print("Shift \(name?["en"]) to position \(self.position)")
     }
     
     mutating func updatePath () {

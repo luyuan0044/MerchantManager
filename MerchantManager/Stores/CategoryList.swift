@@ -24,6 +24,8 @@ class CategoryList {
     
     private var all: [Category]?
     
+    private var categoriesOnView: [Category]? = nil
+    
     //Mark: Implementation
     
     func requestCategoryListData (completion: @escaping () -> Void) {
@@ -65,13 +67,91 @@ class CategoryList {
         })
     }
     
+    
     func getAllCategories () -> [Category] {
         return all!
     }
     
-    func move (fromPosition: Int, to: Int) {
-        let movedCategory = all![fromPosition]
-        all!.remove(at: fromPosition)
-        all!.insert(movedCategory, at: to)
+    
+    func getCategoriesOnView () -> [Category] {
+        CategoryList.shared.constructCategoriesOnViewIfNeeded ()
+
+        return categoriesOnView!
+    }
+    
+    
+    func constructCategoriesOnViewIfNeeded () {
+        guard categoriesOnView == nil else {
+            return;
+        }
+        
+        if categoriesOnView == nil {
+            categoriesOnView = []
+        }
+        
+        if let root = getRootCategory () {
+            let rootChildren = getChildrenCategoriesOf (categoryId: root.id)
+            
+            for child in rootChildren {
+                let category = child
+                categoriesOnView!.append(category)
+            }
+            
+            categoriesOnView!.sort(by: { $0.0.position < $0.1.position })
+            
+            debugPrintPosition ()
+        }
+    }
+    
+    
+    func getChildrenCategoriesOf (categoryId: Int) -> [Category] {
+        return all!.filter({ $0.parentId == categoryId })
+    }
+    
+    
+    private func getRootCategory () -> Category? {
+        return all!.filter({ $0.level == 1 }).first
+    }
+    
+    
+    func move (fromIndex: Int, toIndex: Int) {
+        guard fromIndex != toIndex else {
+            return
+        }
+        
+        //move category
+        var movedCategory = categoriesOnView![fromIndex]
+        categoriesOnView!.remove(at: fromIndex)
+        categoriesOnView!.insert(movedCategory, at: toIndex)
+        
+        //update moved category
+        categoriesOnView![toIndex].updatePosition(position: toIndex + 1)
+        
+        //update categories' position in the same level
+        shiftCategoryPositions (fromIndex: fromIndex, toIndex: toIndex)
+        
+        debugPrintPosition ()
+    }
+    
+    private func shiftCategoryPositions (fromIndex: Int, toIndex: Int) {
+        if fromIndex < toIndex {
+            //move down
+            
+            for index in fromIndex..<toIndex {
+                categoriesOnView![index].updatePosition(shift: -1)
+            }
+        } else {
+            //move up
+            
+            for index in toIndex + 1...fromIndex {
+                categoriesOnView![index].updatePosition(shift: 1)
+            }
+        }
+    }
+    
+    private func debugPrintPosition () {
+        for cate in categoriesOnView! {
+            print(cate.position)
+        }
     }
 }
