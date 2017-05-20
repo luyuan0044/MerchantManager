@@ -9,12 +9,23 @@
 import Foundation
 import ObjectMapper
 
-class AdminConfig {
+struct AdminConfig : Mappable {
     
     //Properties
-    var key: String?
-    var secret: String?
+    var consumerKey: String = ""
+    var consumerSecret: String = ""
     var version: String?
     var tax_class: [TaxClass]?
+    
+    init?(map: Map) {
+        
+    }
+    
+    mutating func mapping(map: Map) {
+        consumerKey <- map["key"]
+        consumerSecret <- map["secret"]
+        version <- map["bv"]
+        tax_class <- map["tax_class"]
+    }
 }
 

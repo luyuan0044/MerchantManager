@@ -12,10 +12,6 @@ import OAuthSwiftAlamofire
 import OAuthSwift
 import ObjectMapper
 
-
-//Mark: Notifications
-let requsetStoreDataCompleteNotification = "requsetStoreDataCompleteNotification"
-
 class StoreManager {
     static var shared: StoreManager {
         return _shared
@@ -31,12 +27,12 @@ class StoreManager {
     var current: Store?
     
     //Mark: Implementation
-    func requestStoreData () {
+    func requestStoreData (completion: @escaping () -> Void) {
         
         var status: apiStatus = apiStatus.unknownError
         let oauthClient = ApiManager.shared.getOauthClient()
-        let path = BASE_URL.appendingPathComponent(REST_PATH_STORE)
-        oauthClient.request(path.absoluteString, method: .GET, parameters: [:], headers: [:], body: nil, checkTokenExpiration: false, success: {
+        let path = REST_PATH_STORE
+        oauthClient.request(path, method: .GET, parameters: [:], headers: [:], body: nil, checkTokenExpiration: false, success: {
             response in
             do {
                 let jsonObject = try JSONSerialization.jsonObject(with: response.data, options: JSONSerialization.ReadingOptions.allowFragments)
@@ -50,12 +46,14 @@ class StoreManager {
                 print (error)
             }
             
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: requsetStoreDataCompleteNotification), object: nil)
+            completion()
             
         }, failure: {
             response in
             
             print (response)
+            
+            completion()
         })
     }
 }

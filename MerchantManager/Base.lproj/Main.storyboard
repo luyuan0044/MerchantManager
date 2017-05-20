@@ -168,6 +168,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="u1Q-I2-uoT" kind="custom" identifier="show_category_list" customClass="SWRevealViewControllerSeguePushController" id="xZd-zd-7Xr"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -223,6 +226,46 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h0C-3Y-AJ2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4145" y="883"/>
+        </scene>
+        <!--Category Table View Controller-->
+        <scene sceneID="CuP-nU-58N">
+            <objects>
+                <tableViewController id="HcZ-sj-xLM" customClass="CategoryTableViewController" customModule="MerchantManager" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ODy-ya-8Wh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="HcZ-sj-xLM" id="qsW-lf-Amt"/>
+                            <outlet property="delegate" destination="HcZ-sj-xLM" id="MGy-Uy-V1B"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="ZpG-EC-X1x">
+                        <barButtonItem key="leftBarButtonItem" image="icon_menu" id="y6o-56-NG3"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="menuButton" destination="y6o-56-NG3" id="Zdt-qq-LfQ"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CS5-uZ-7hA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4145" y="1575"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="lfR-TT-cm2">
+            <objects>
+                <navigationController id="u1Q-I2-uoT" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mHG-ie-53Z">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="HcZ-sj-xLM" kind="relationship" relationship="rootViewController" id="hJL-66-s5V"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pt6-sk-U2X" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3377" y="1575"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="T1U-Fu-m0N">

@@ -16,7 +16,7 @@ class MenuTableViewController: UITableViewController {
         [("icon_user_filled.png", "User Name", nil),
         ("icon_dashboard_filled.png", NSLocalizedString("dashboard", comment: ""), "show_dashboard"),
         ("icon_order_filled.png", NSLocalizedString("orders", comment: ""), "show_order_list"),
-        ("icon_category_filled.png", NSLocalizedString("categories", comment: ""), nil),
+        ("icon_category_filled.png", NSLocalizedString("categories", comment: ""), "show_category_list"),
         ("icon_product_filled.png", NSLocalizedString("products", comment: ""), nil),
         ("icon_store_filled.png", NSLocalizedString("store", comment: ""), nil),
         ("icon_setting_filled.png", NSLocalizedString("settings", comment: ""), nil)]

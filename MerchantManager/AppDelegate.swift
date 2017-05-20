@@ -7,15 +7,19 @@
 //
 
 import UIKit
+import Alamofire
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        //request app config from server
+        requestAppConfig()
+        
         return true
     }
 
@@ -41,6 +45,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+    func requestAppConfig () {
+        let path = REST_PATH_APP_CONFIG
+        
+        print(path)
+        Alamofire.request(path).responseString(completionHandler: { response in
+            print(response)
+        }).responseObject(completionHandler: {(response: DataResponse<ApiResponse<AdminConfig>>) in
+            if response.result.isSuccess {
+                if let serverReturn = response.result.value, response.result.value?.getStatus() == apiStatus.success {
+                    ApiManager.shared.setupConsumerKeypair(consumerKey: (serverReturn.records?.consumerKey)!, consumerSecret: (serverReturn.records?.consumerSecret)!)
+                }
+            }
+        })
+    }
 }
 

@@ -13,7 +13,9 @@ import Foundation
 
 //Url
 
-let BASE_URL = URL(string: "https://api.goopter.com/")!
+let BASE_URL = "https://api.goopter.com/"
+
+let REST_PATH_APP_CONFIG = BASE_URL + "api/v6/appconfig?admin=1&system=ios"
 
 let REST_PATH_ORDER_LIST = "api/rest/adm/v4/ordlst"
 
@@ -21,11 +23,11 @@ let REST_PATH_ORDER_DATAIL = "api/rest/adm/v3/orddtl"
 
 let REST_PATH_ACCOUNT_INFO = "api/rest/adm/v2/customerinfo"
 
-let REST_PATH_LOGIN = "api/rest/adm/v2/adminlogin"
+let REST_PATH_LOGIN = BASE_URL + "api/rest/adm/v2/adminlogin"
 
-let REST_PATH_STORE = "api/rest/adm/v2/storedetails"
+let REST_PATH_STORE = BASE_URL + "api/rest/adm/v2/storedetails"
 
-let REST_PATH_CATEGORY = ""
+let REST_PATH_CATEGORY = BASE_URL + "api/rest/adm/v2/catlist"
 
 
 

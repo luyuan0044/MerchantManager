@@ -26,28 +26,50 @@ class CategoryList {
     
     //Mark: Implementation
     
-    func requestCategoryListData () {
+    func requestCategoryListData (completion: @escaping () -> Void) {
         
         let oauthClient = ApiManager.shared.getOauthClient()
-        let path = BASE_URL.appendingPathComponent(REST_PATH_CATEGORY)
+        let path = REST_PATH_CATEGORY
         
-        oauthClient.request(path.absoluteString, method: .GET, parameters: [:], headers: [:], body: nil, checkTokenExpiration: false, success: {
-            response in
+        oauthClient.request(path, method: .GET, parameters: [:], headers: [:], body: nil, checkTokenExpiration: false, success: {  response in
             do {
                 let jsonObject = try JSONSerialization.jsonObject(with: response.data, options: JSONSerialization.ReadingOptions.allowFragments)
                 
-                let categoryList = Mapper<ApiResponse<Category>>.init().map(JSON: jsonObject as! [String: AnyObject])
+                print(jsonObject)
                 
+                let response = ApiResponseList<Category> ()
+                
+                Mapper<ApiResponseList<Category>>().map(JSONObject: jsonObject, toObject: response)
+                
+                if response.getStatus() == apiStatus.success {
+                    if self.all == nil {
+                        self.all = []
+                    }
+                    
+                    self.all!.append(contentsOf: response.records!)
+                } else {
+                    
+                }
             } catch {
                 print (error)
             }
             
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: requsetStoreDataCompleteNotification), object: nil)
+            completion()
             
         }, failure: {
             response in
             
             print (response)
+            
+            completion()
         })
+    }
+    
+    func getAllCategories () -> [Category] {
+        return all!
+    }
+    
+    func startEdit () {
+        
     }
 }

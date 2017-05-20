@@ -10,6 +10,7 @@
 		1FFD378A7B5473A4A1499C88 /* Pods_MerchantManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C42E4CA0ED77F0447EE0381 /* Pods_MerchantManager.framework */; };
 		79817EF91ECF692D00DE5CD1 /* CategoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79817EF81ECF692D00DE5CD1 /* CategoryList.swift */; };
 		79817EFB1ECF6A5400DE5CD1 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79817EFA1ECF6A5400DE5CD1 /* Category.swift */; };
+		79817EFE1ECFA5CD00DE5CD1 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79817EFD1ECFA5CD00DE5CD1 /* CategoryTableViewController.swift */; };
 		798F53A81ECC16A8003619B6 /* CacheManageProtocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798F53A31ECC16A8003619B6 /* CacheManageProtocal.swift */; };
 		798F53A91ECC16A8003619B6 /* DataPagingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798F53A41ECC16A8003619B6 /* DataPagingControl.swift */; };
 		798F53AA1ECC16A8003619B6 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798F53A51ECC16A8003619B6 /* Enums.swift */; };
@@ -79,6 +80,7 @@
 /* Begin PBXFileReference section */
 		79817EF81ECF692D00DE5CD1 /* CategoryList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryList.swift; sourceTree = "<group>"; };
 		79817EFA1ECF6A5400DE5CD1 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		79817EFD1ECFA5CD00DE5CD1 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		798F53A31ECC16A8003619B6 /* CacheManageProtocal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheManageProtocal.swift; sourceTree = "<group>"; };
 		798F53A41ECC16A8003619B6 /* DataPagingControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataPagingControl.swift; sourceTree = "<group>"; };
 		798F53A51ECC16A8003619B6 /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
@@ -173,6 +175,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		79817EFC1ECFA58B00DE5CD1 /* CategoryViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				79817EFD1ECFA5CD00DE5CD1 /* CategoryTableViewController.swift */,
+			);
+			path = CategoryViewControllers;
+			sourceTree = "<group>";
+		};
 		798F53A21ECC16A8003619B6 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -257,6 +267,7 @@
 		798F53D21ECC18EF003619B6 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				79817EFC1ECFA58B00DE5CD1 /* CategoryViewControllers */,
 				798F53D51ECC18EF003619B6 /* LoginViewController.swift */,
 				798F53D61ECC18EF003619B6 /* MenuTableViewController.swift */,
 				798F53D31ECC18EF003619B6 /* DashboardViewControllers */,
@@ -609,6 +620,7 @@
 				798F53A81ECC16A8003619B6 /* CacheManageProtocal.swift in Sources */,
 				798F53C31ECC17BA003619B6 /* OauthKeyPair.swift in Sources */,
 				798F53DE1ECC18EF003619B6 /* MenuTableViewController.swift in Sources */,
+				79817EFE1ECFA5CD00DE5CD1 /* CategoryTableViewController.swift in Sources */,
 				799F4D051ECE431400566685 /* PaymentSetting.swift in Sources */,
 				79D647411EC2B9F30045822C /* AppDelegate.swift in Sources */,
 				798F53D11ECC1848003619B6 /* OrderList.swift in Sources */,

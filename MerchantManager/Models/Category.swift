@@ -18,6 +18,8 @@ struct Category : Mappable {
     var position: Int = 0
     var path: String = ""
     var productCount: Int = 0
+    var enable: Bool = false
+    var publishedAt: Date?
     
     init?(map: Map) {
         
@@ -31,5 +33,7 @@ struct Category : Mappable {
         position <- map["position"]
         path <- map["path"]
         productCount <- map["product_count"]
+        enable <- map["is_active"]
+        publishedAt <- (map["published_at"], DateTransform())
     }
 }

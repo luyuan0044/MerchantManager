@@ -33,7 +33,7 @@ final class AccountManager {
 //        let loginPostBody = LoginPostBody (username: "6049315255", password: "gp6049315255")
         let loginPostBody = LoginPostBody (username: username, password: password)
         let body = loginPostBody.toJSON()
-        let path = BASE_URL.appendingPathComponent(REST_PATH_LOGIN)
+        let path = REST_PATH_LOGIN
         
         Alamofire.request(path, method: .post, parameters: body, encoding: JSONEncoding.default, headers: nil).responseObject(completionHandler: {
             (response: DataResponse<ApiResponse<LoginResponse>>) in
@@ -45,6 +45,9 @@ final class AccountManager {
                 if (serverReturn.getStatus() == apiStatus.success) {
                     self.current = serverReturn.records!.profile
                     
+                    //setup keypair to ApiManager
+                    ApiManager.shared.setupOauthKeypair(serverReturn.records!.oauth!)
+                    
                     if let profile = self.current {
                         if let groups = profile.stores {
                             GroupList.shared.setGroups(groups)
@@ -53,9 +56,6 @@ final class AccountManager {
                             GroupList.shared.switchGroup(id: profile.currentStore!.id)
                         }
                     }
-                    
-                    //setup keypair to ApiManager
-                    ApiManager.shared.setupOauthKeypair(serverReturn.records!.oauth!)
                 }
             }
             

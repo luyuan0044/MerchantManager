@@ -7,11 +7,21 @@
 //
 
 import Foundation
+import ObjectMapper
 
-final class TaxClass {
+struct TaxClass : Mappable {
     
     //Properties
     var id: Int = -1
     var name: String?
+    
+    init?(map: Map) {
+        
+    }
+    
+    mutating func mapping(map: Map) {
+        id <- map["id"]
+        name <- map["tax_class_name"]
+    }
 }
 

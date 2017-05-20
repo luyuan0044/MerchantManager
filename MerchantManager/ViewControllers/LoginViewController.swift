@@ -39,9 +39,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     func configUIComponents (){
         loginPanelView.backgroundColor = appThemeColor
         
+        usernameTextField.text = "6049315255"
         usernameTextField.placeholder = NSLocalizedString("username", comment: "")
         usernameTextField.delegate = self
         
+        passwordTextField.text = "gp6049315255"
         passwordTextField.placeholder = NSLocalizedString("password", comment: "")
         passwordTextField.delegate = self
         

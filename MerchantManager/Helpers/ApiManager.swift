@@ -30,6 +30,11 @@ class ApiManager {
     private var accessToken = ""
     private var accessTokenSecret = ""
     
+    func setupConsumerKeypair(consumerKey: String, consumerSecret: String) {
+        self.consumerKey = consumerKey
+        self.consumerSecret = consumerSecret
+    }
+    
     func setupOauthKeypair (_ oauthKeypair: OauthKeyPair) {
         accessToken = oauthKeypair.token!
         accessTokenSecret = oauthKeypair.tokenSecret!
