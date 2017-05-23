@@ -18,6 +18,7 @@ class CategoryTableViewController: UITableViewController {
         super.viewDidLoad()
         
         tableView.isEditing = true
+        tableView.allowsSelectionDuringEditing = true
         
         self.title = NSLocalizedString("categories", comment: "")
         
@@ -55,11 +56,43 @@ class CategoryTableViewController: UITableViewController {
             cell = UITableViewCell (style: .default, reuseIdentifier: categoryCellIdentifier)
         }
 
-        var category = CategoryList.shared.getCategoriesOnView()[indexPath.row]
+        var cellModel = CategoryList.shared.getCategoriesOnView()[indexPath.row]
         
-        cell!.textLabel!.text = category.name!["en"]
+        cell!.textLabel!.text = cellModel.0.name!["en"]
 
         return cell!
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cellModel = CategoryList.shared.getCategoriesOnView()[indexPath.row]
+        
+        if (!cellModel.1) { //not extended
+            tableView.beginUpdates()
+            let numberOfChildren = CategoryList.shared.extend(index: indexPath.row)
+            
+            if numberOfChildren == 0 { return }
+            
+            var indexPathToInsert: [IndexPath] = []
+            for index in 1...numberOfChildren {
+                indexPathToInsert.append(IndexPath.init(row: indexPath.row + index, section: indexPath.section))
+            }
+            
+            tableView.insertRows(at: indexPathToInsert, with: .top)
+            tableView.endUpdates()
+        } else {    //has alreday extended
+            tableView.beginUpdates()
+            let numberCellToRemove = CategoryList.shared.collapse(index: indexPath.row)
+            
+            if numberCellToRemove == 0 { return }
+            
+            var indexPathToRemove: [IndexPath] = []
+            for index in 1...numberCellToRemove {
+                indexPathToRemove.append(IndexPath.init(row: indexPath.row + index, section: indexPath.section))
+            }
+            
+            tableView.deleteRows(at: indexPathToRemove, with: .top)
+            tableView.endUpdates()
+        }
     }
 
     /*
@@ -92,7 +125,8 @@ class CategoryTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        return true
+        let cellModel = CategoryList.shared.getCategoriesOnView()[indexPath.row]
+        return !cellModel.1
     }
     
     
@@ -113,7 +147,7 @@ class CategoryTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, indentationLevelForRowAt indexPath: IndexPath) -> Int {
-        return CategoryList.shared.getCategoriesOnView()[indexPath.row].level - 2
+        return CategoryList.shared.getCategoriesOnView()[indexPath.row].0.level - 2
     }
     
     /*

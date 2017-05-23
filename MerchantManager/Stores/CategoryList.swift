@@ -22,9 +22,13 @@ class CategoryList {
     
     //Mark: Properties
     
+    typealias extended = Bool
+    
+    typealias CellModel = (Category, extended)
+    
     private var all: [Category]?
     
-    private var categoriesOnView: [Category]? = nil
+    private var categoriesOnView: [CellModel]? = nil
     
     //Mark: Implementation
     
@@ -37,7 +41,7 @@ class CategoryList {
             do {
                 let jsonObject = try JSONSerialization.jsonObject(with: response.data, options: JSONSerialization.ReadingOptions.allowFragments)
                 
-                print(jsonObject)
+                print(String(describing: jsonObject))
                 
                 let response = ApiResponseList<Category> ()
                 
@@ -49,6 +53,14 @@ class CategoryList {
                     }
                     
                     self.all!.append(contentsOf: response.records!)
+                    
+                    //test code
+                    var testcategory = self.all!.filter({$0.id == 10190}).first
+                    testcategory!.updateParent(id: 10185)
+                    testcategory!.updateLevel()
+                    self.all!.removeLast()
+                    self.all!.append(testcategory!)
+                    
                 } else {
                     
                 }
@@ -73,7 +85,7 @@ class CategoryList {
     }
     
     
-    func getCategoriesOnView () -> [Category] {
+    func getCategoriesOnView () -> [CellModel] {
         CategoryList.shared.constructCategoriesOnViewIfNeeded ()
 
         return categoriesOnView!
@@ -94,10 +106,10 @@ class CategoryList {
             
             for child in rootChildren {
                 let category = child
-                categoriesOnView!.append(category)
+                categoriesOnView!.append((category, false))
             }
             
-            categoriesOnView!.sort(by: { $0.0.position < $0.1.position })
+            categoriesOnView!.sort(by: { $0.0.0.position < $0.1.0.position })
             
             debugPrintPosition ()
         }
@@ -125,7 +137,7 @@ class CategoryList {
         categoriesOnView!.insert(movedCategory, at: toIndex)
         
         //update moved category
-        categoriesOnView![toIndex].updatePosition(position: toIndex + 1)
+        categoriesOnView![toIndex].0.updatePosition(position: toIndex + 1)
         
         //update categories' position in the same level
         shiftCategoryPositions (fromIndex: fromIndex, toIndex: toIndex)
@@ -133,25 +145,91 @@ class CategoryList {
         debugPrintPosition ()
     }
     
+    
+    func extend (index: Int) -> Int {
+        let cellModel = categoriesOnView![index]
+        
+        //find children
+        let children = getChildrenCategoriesOf(categoryId: cellModel.0.id)
+        
+        //return when no children
+        guard children.count > 0 else {
+            return children.count
+        }
+        
+        //update extend status
+        categoriesOnView![index].1 = true
+        
+        var cellModelsToAdd : [CellModel] = []
+        for child in children {
+            cellModelsToAdd.append((child, false))
+        }
+        
+        categoriesOnView!.insert(contentsOf: cellModelsToAdd, at: index + 1)
+        
+        debugPrintPosition ()
+        
+        return children.count
+    }
+    
+    
+    func collapse (index: Int) -> Int {
+        //update extend status 
+        categoriesOnView![index].1 = false
+        
+        let next = categoriesOnView!.filter({$0.0.level == categoriesOnView![index].0.level && $0.0.position > categoriesOnView![index].0.position}).first
+        
+        //calculate index of cellModels need to be removed
+        let removeStartIndex = index + 1
+        var removeEndIndex: Int = 0
+        if let nextCellModel = next {
+            let indexOfNextCellModel = categoriesOnView!.index(where: { $0.0.id == nextCellModel.0.id })
+            
+            if indexOfNextCellModel != nil {
+                removeEndIndex = indexOfNextCellModel! - 1
+            } else {
+                removeEndIndex = categoriesOnView!.endIndex
+            }
+        }
+        
+        //remove range
+        let range = removeStartIndex...removeEndIndex
+        categoriesOnView!.removeSubrange(range)
+        
+        debugPrintPosition ()
+        
+        return removeEndIndex - removeStartIndex + 1
+    }
+    
     private func shiftCategoryPositions (fromIndex: Int, toIndex: Int) {
         if fromIndex < toIndex {
             //move down
             
             for index in fromIndex..<toIndex {
-                categoriesOnView![index].updatePosition(shift: -1)
+                categoriesOnView![index].0.updatePosition(shift: -1)
             }
         } else {
             //move up
             
             for index in toIndex + 1...fromIndex {
-                categoriesOnView![index].updatePosition(shift: 1)
+                categoriesOnView![index].0.updatePosition(shift: 1)
             }
         }
     }
     
+    
+    //Mark: Test log
     private func debugPrintPosition () {
-        for cate in categoriesOnView! {
-            print(cate.position)
+        for cellModel in categoriesOnView! {
+            let name = cellModel.0.name!["en"]
+            
+            if cellModel.0.level == 2 {
+                print ("\(name!)")
+            } else {
+                print ("-\(name!)")
+            }
         }
+        
+        print("=========")
     }
 }

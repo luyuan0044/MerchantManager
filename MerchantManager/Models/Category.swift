@@ -55,4 +55,12 @@ extension Category {
     mutating func updatePath () {
         
     }
+    
+    mutating func updateParent (id: Int) {
+        self.parentId = id
+    }
+    
+    mutating func updateLevel () {
+        self.level = 3
+    }
 }
