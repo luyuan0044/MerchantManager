@@ -54,13 +54,6 @@ class CategoryList {
                     
                     self.all!.append(contentsOf: response.records!)
                     
-                    //test code
-                    var testcategory = self.all!.filter({$0.id == 10190}).first
-                    testcategory!.updateParent(id: 10185)
-                    testcategory!.updateLevel()
-                    self.all!.removeLast()
-                    self.all!.append(testcategory!)
-                    
                 } else {
                     
                 }

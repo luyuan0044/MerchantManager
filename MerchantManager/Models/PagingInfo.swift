@@ -11,8 +11,8 @@ import Foundation
 class PagingInfo {
     
     //Properties
-    var page: Int = 0
-    var limit: Int = 0
+    var page: Int = 1
+    var limit: Int = 10
     
     init() {
         

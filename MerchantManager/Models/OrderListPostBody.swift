@@ -7,12 +7,21 @@
 //
 
 import Foundation
+import ObjectMapper
 
-class OrderListPostBody {
+class OrderListPostBody : Mappable {
     
-    var searchCondition: OrderListSearchCondition
+    var searchCondition: OrderListSearchCondition?
     
-    init(search_condition: OrderListSearchCondition) {
-        self.searchCondition = search_condition
+    init(searchCondition: OrderListSearchCondition) {
+        self.searchCondition = searchCondition
+    }
+    
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        self.searchCondition <- map["search_condition"]
     }
 }

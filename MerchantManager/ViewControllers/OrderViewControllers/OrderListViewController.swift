@@ -12,6 +12,8 @@ class OrderListViewController: UIViewController, UITableViewDelegate, UITableVie
 
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
+    @IBOutlet weak var filterButton: UIBarButtonItem!
+    
     @IBOutlet weak var filterPanelView: UIView!
     
     @IBOutlet weak var statusSegButton: UISegmentedControl!
@@ -20,7 +22,7 @@ class OrderListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     var refreshControl: UIRefreshControl!
     
-    var orders: [[Order]] = [[]]
+    var orders: [[Order]] = []
     
     let orderCellIdentifier = "orderCell"
     
@@ -53,10 +55,10 @@ class OrderListViewController: UIViewController, UITableViewDelegate, UITableVie
         statusSegButton.addTarget(self, action: #selector(OrderListViewController.onSegButtonClicked(sender:)), for: .valueChanged)
         statusSegButton.setTitle(NSLocalizedString("all", comment: ""), forSegmentAt: 0)
         statusSegButton.setTitle(NSLocalizedString("pending", comment: ""), forSegmentAt: 1)
-        statusSegButton.setTitle(NSLocalizedString("completed", comment: ""), forSegmentAt: 2)
-        statusSegButton.setTitle(NSLocalizedString("canceled", comment: ""), forSegmentAt: 3)
-        statusSegButton.setTitle(NSLocalizedString("closed", comment: ""), forSegmentAt: 4)
-        statusSegButton.selectedSegmentIndex = OrderList.shareInstance.saerchCondition.status
+        statusSegButton.setTitle(NSLocalizedString("processing", comment: ""), forSegmentAt: 2)
+        statusSegButton.setTitle(NSLocalizedString("completed", comment: ""), forSegmentAt: 3)
+        statusSegButton.setTitle(NSLocalizedString("canceled", comment: ""), forSegmentAt: 4)
+        statusSegButton.selectedSegmentIndex = OrderList.shareInstance.searchCondition.status
         
         loadData (withCachedClear: false)
     }
@@ -64,6 +66,12 @@ class OrderListViewController: UIViewController, UITableViewDelegate, UITableVie
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if OrderList.shareInstance.isSearchConditionChanged() {
+            loadData(withCachedClear: true)
+        }
     }
     
     func styleNavBar() {
@@ -76,6 +84,13 @@ class OrderListViewController: UIViewController, UITableViewDelegate, UITableVie
         
         menuButton.tintColor = UIColor.white
         menuButton.imageInsets = UIEdgeInsets (top: 5, left: 5, bottom: 5, right: 5)
+        
+        filterButton.tintColor = UIColor.white
+        filterButton.imageInsets = UIEdgeInsets (top: 3, left: 3, bottom: 3, right: 3)
+    }
+    
+    @IBAction func filterButtonAction(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "show_order_list_filters", sender: self)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -84,6 +99,10 @@ class OrderListViewController: UIViewController, UITableViewDelegate, UITableVie
         if cell == nil {
             cell = UITableViewCell (style: .default, reuseIdentifier: orderCellIdentifier)
         }
+        
+        let model = self.orders.first![indexPath.row]
+        
+        cell!.textLabel!.text = model.id
     
         return cell!
     }
@@ -101,15 +120,15 @@ class OrderListViewController: UIViewController, UITableViewDelegate, UITableVie
         
         switch segButton.selectedSegmentIndex {
             case 0:
-                OrderList.shareInstance.saerchCondition.status = 0
+                OrderList.shareInstance.setSearchStatus(status: 0)
             case 1:
-                OrderList.shareInstance.saerchCondition.status = 1
+                OrderList.shareInstance.setSearchStatus(status: orderStatus.pending.rawValue)
             case 2:
-                OrderList.shareInstance.saerchCondition.status = 2
+                OrderList.shareInstance.setSearchStatus(status: orderStatus.processing.rawValue)
             case 3:
-                OrderList.shareInstance.saerchCondition.status = 3
+                OrderList.shareInstance.setSearchStatus(status: orderStatus.completed.rawValue)
             case 4:
-                OrderList.shareInstance.saerchCondition.status = 4
+                OrderList.shareInstance.setSearchStatus(status: orderStatus.canceled.rawValue)
             default:
                 break
         }
@@ -121,19 +140,16 @@ class OrderListViewController: UIViewController, UITableViewDelegate, UITableVie
         loadData(withCachedClear: true)
     }
     
-    private func loadData (withCachedClear: Bool) {
-        
+    func loadData (withCachedClear: Bool) {
         BasicLaodingView.shared.showProgressView(self.view)
         statusSegButton.isUserInteractionEnabled = false
         DispatchQueue.global().async {
-            let result = OrderList.shareInstance.LoadOrderList(withCachedClear: withCachedClear)
-            self.orders = result
-            
-            DispatchQueue.main.async {
+            OrderList.shareInstance.LoadOrderList(withCachedClear: withCachedClear, completion: { orders in
+                self.orders = orders.groupBy(groupClosure: {$0.createAt!})
                 BasicLaodingView.shared.hideProgressView()
                 self.statusSegButton.isUserInteractionEnabled = true
                 self.RefreshData()
-            }
+            })
         }
     }
     

@@ -7,33 +7,39 @@
 //
 
 import Foundation
+import ObjectMapper
 
-class Order {
+class Order : Mappable {
     
-    var id: Int = -1
+    var id: String = ""
     var status: Int = -1
     var shippingMethod: Int = -1
     var paymentMethod: Int = -1
-    var createAt: NSDate?
+    var createAt: Date?
     var total: Double?
-    var billTo: String?
-    var shipTo: String?
-    var storeName: String?
+    var customer_name: String?
     var phone: String?
     var email: String?
-    var address: String?
+    var address: Address?
     var table: String?
-    var expectDate: NSDate?
-}
-
-/*
-extension Order {
-    convenience init(json: JSON) throws {
-        self.init()
+    var expectDate: Date?
+    
+    required init?(map: Map) {
         
-        if let json = json {
-            print(json)
-        }
+    }
+    
+    func mapping(map: Map) {
+        id <- map["ord_id"]
+        status <- map["status"]
+        createAt <- (map["ord_dt"], DateTransform())
+        total <- map["ord_total"]
+        customer_name <- map["c_name"]
+        phone <- map["phone"]
+        address <- map["address"]
+        table <- map["table"]
+        shippingMethod <- map["s_method"]
+        paymentMethod <- map["p_method"]
+        email <- map["email"]
+        expectDate <- (map["exp_dt"], DateTransform())
     }
 }
-*/

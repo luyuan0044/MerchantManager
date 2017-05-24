@@ -17,7 +17,7 @@ let BASE_URL = "https://api.goopter.com/"
 
 let REST_PATH_APP_CONFIG = BASE_URL + "api/v6/appconfig?admin=1&system=ios"
 
-let REST_PATH_ORDER_LIST = "api/rest/adm/v4/ordlst"
+let REST_PATH_ORDER_LIST = BASE_URL + "api/rest/adm/v4/ordlst"
 
 let REST_PATH_ORDER_DATAIL = "api/rest/adm/v3/orddtl"
 

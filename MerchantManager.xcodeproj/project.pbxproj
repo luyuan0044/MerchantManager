@@ -12,6 +12,8 @@
 		79817EF91ECF692D00DE5CD1 /* CategoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79817EF81ECF692D00DE5CD1 /* CategoryList.swift */; };
 		79817EFB1ECF6A5400DE5CD1 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79817EFA1ECF6A5400DE5CD1 /* Category.swift */; };
 		79817EFE1ECFA5CD00DE5CD1 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79817EFD1ECFA5CD00DE5CD1 /* CategoryTableViewController.swift */; };
+		798E002C1ED4E0E1006BF848 /* ObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798E002B1ED4E0E1006BF848 /* ObjectExtension.swift */; };
+		798E00301ED4F59F006BF848 /* OrderListFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798E002F1ED4F59F006BF848 /* OrderListFilterViewController.swift */; };
 		798F53A81ECC16A8003619B6 /* CacheManageProtocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798F53A31ECC16A8003619B6 /* CacheManageProtocal.swift */; };
 		798F53A91ECC16A8003619B6 /* DataPagingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798F53A41ECC16A8003619B6 /* DataPagingControl.swift */; };
 		798F53AA1ECC16A8003619B6 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798F53A51ECC16A8003619B6 /* Enums.swift */; };
@@ -83,6 +85,8 @@
 		79817EF81ECF692D00DE5CD1 /* CategoryList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryList.swift; sourceTree = "<group>"; };
 		79817EFA1ECF6A5400DE5CD1 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		79817EFD1ECFA5CD00DE5CD1 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
+		798E002B1ED4E0E1006BF848 /* ObjectExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectExtension.swift; sourceTree = "<group>"; };
+		798E002F1ED4F59F006BF848 /* OrderListFilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderListFilterViewController.swift; sourceTree = "<group>"; };
 		798F53A31ECC16A8003619B6 /* CacheManageProtocal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheManageProtocal.swift; sourceTree = "<group>"; };
 		798F53A41ECC16A8003619B6 /* DataPagingControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataPagingControl.swift; sourceTree = "<group>"; };
 		798F53A51ECC16A8003619B6 /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
@@ -95,7 +99,7 @@
 		798F53B31ECC17BA003619B6 /* OauthKeyPair.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OauthKeyPair.swift; path = Order/OauthKeyPair.swift; sourceTree = "<group>"; };
 		798F53B41ECC17BA003619B6 /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		798F53B51ECC17BA003619B6 /* OrderListSearchCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderListSearchCondition.swift; sourceTree = "<group>"; };
-		798F53B61ECC17BA003619B6 /* OrderListPostBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderListPostBody.swift; sourceTree = "<group>"; };
+		798F53B61ECC17BA003619B6 /* OrderListPostBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrderListPostBody.swift; path = MerchantManager/Models/OrderListPostBody.swift; sourceTree = SOURCE_ROOT; };
 		798F53B71ECC17BA003619B6 /* PagingInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagingInfo.swift; sourceTree = "<group>"; };
 		798F53B81ECC17BA003619B6 /* PagingOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagingOption.swift; sourceTree = "<group>"; };
 		798F53B91ECC17BA003619B6 /* PhoneComponents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneComponents.swift; sourceTree = "<group>"; };
@@ -195,6 +199,7 @@
 				798F53A61ECC16A8003619B6 /* SysConstants.swift */,
 				798F53A71ECC16A8003619B6 /* UIConstants.swift */,
 				799F4D101ECE541200566685 /* AlamofireExtension.swift */,
+				798E002B1ED4E0E1006BF848 /* ObjectExtension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -207,7 +212,6 @@
 				798F53AF1ECC17BA003619B6 /* ApiResponse.swift */,
 				798F53B01ECC17BA003619B6 /* LoginPostBody.swift */,
 				798F53B11ECC17BA003619B6 /* LoginResponse.swift */,
-				798F53B61ECC17BA003619B6 /* OrderListPostBody.swift */,
 				798F53B71ECC17BA003619B6 /* PagingInfo.swift */,
 				798F53B81ECC17BA003619B6 /* PagingOption.swift */,
 				798F53B91ECC17BA003619B6 /* PhoneComponents.swift */,
@@ -225,6 +229,7 @@
 		798F53B21ECC17BA003619B6 /* Order */ = {
 			isa = PBXGroup;
 			children = (
+				798F53B61ECC17BA003619B6 /* OrderListPostBody.swift */,
 				798F53B41ECC17BA003619B6 /* Order.swift */,
 				798F53B51ECC17BA003619B6 /* OrderListSearchCondition.swift */,
 			);
@@ -291,6 +296,7 @@
 			isa = PBXGroup;
 			children = (
 				798F53D81ECC18EF003619B6 /* OrderListViewController.swift */,
+				798E002F1ED4F59F006BF848 /* OrderListFilterViewController.swift */,
 			);
 			path = OrderViewControllers;
 			sourceTree = "<group>";
@@ -600,6 +606,7 @@
 				798F53C41ECC17BA003619B6 /* Order.swift in Sources */,
 				799F4D031ECE419800566685 /* PrinterSetting.swift in Sources */,
 				798F53CA1ECC17BA003619B6 /* Profile.swift in Sources */,
+				798E002C1ED4E0E1006BF848 /* ObjectExtension.swift in Sources */,
 				798F53E01ECC18EF003619B6 /* SWRevealViewController.m in Sources */,
 				798F53C21ECC17BA003619B6 /* LoginResponse.swift in Sources */,
 				799F4D111ECE541200566685 /* AlamofireExtension.swift in Sources */,
@@ -610,6 +617,7 @@
 				798F53C71ECC17BA003619B6 /* PagingInfo.swift in Sources */,
 				799F4CFE1ECE3F1000566685 /* Address.swift in Sources */,
 				79817EF91ECF692D00DE5CD1 /* CategoryList.swift in Sources */,
+				798E00301ED4F59F006BF848 /* OrderListFilterViewController.swift in Sources */,
 				798F53C91ECC17BA003619B6 /* PhoneComponents.swift in Sources */,
 				798F53CB1ECC17BA003619B6 /* StoreGroup.swift in Sources */,
 				799F4D0A1ECE4ED000566685 /* PaymentStripe.swift in Sources */,
@@ -801,6 +809,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "MerchantManager/MerchantManager-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_REFLECTION_METADATA_LEVEL = none;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -818,6 +827,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = richard.MerchantManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "MerchantManager/MerchantManager-Bridging-Header.h";
+				SWIFT_REFLECTION_METADATA_LEVEL = none;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

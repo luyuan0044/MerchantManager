@@ -361,8 +361,15 @@
                     </view>
                     <navigationItem key="navigationItem" id="94I-o0-h1v">
                         <barButtonItem key="leftBarButtonItem" image="icon_menu" id="efb-q9-4PY"/>
+                        <barButtonItem key="rightBarButtonItem" image="icon_filter" id="YQ4-eh-PWA">
+                            <connections>
+                                <action selector="filterButtonAction:" destination="xmM-xZ-hgQ" id="2g2-5R-eTr"/>
+                                <segue destination="sjW-HS-stW" kind="presentation" identifier="show_order_list_filters" id="GMw-ZL-ug4"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="filterButton" destination="YQ4-eh-PWA" id="7P3-TT-DuH"/>
                         <outlet property="filterPanelView" destination="ZrA-hC-jX7" id="Gaa-QT-gga"/>
                         <outlet property="menuButton" destination="efb-q9-4PY" id="rnC-zp-eiq"/>
                         <outlet property="orderListTableView" destination="liR-zx-kT5" id="Q9b-58-HJV"/>
@@ -372,6 +379,58 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MU4-SU-lAf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4144.8000000000002" y="186.65667166416793"/>
+        </scene>
+        <!--Filter-->
+        <scene sceneID="OvC-0d-9tD">
+            <objects>
+                <tableViewController id="Nrb-wD-TwV" customClass="OrderListFilterViewController" customModule="MerchantManager" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="Y5Q-It-o7t">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="2lp-nC-O0J">
+                                <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2lp-nC-O0J" id="2OF-p8-YNB">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Nrb-wD-TwV" id="XJl-qi-XAY"/>
+                            <outlet property="delegate" destination="Nrb-wD-TwV" id="gk1-y8-9wA"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Filter" id="5XF-GW-QFC">
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="Cf1-lJ-PPN">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="dismissViewController:" destination="Nrb-wD-TwV" id="t8a-oZ-C5t"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="10n-bY-Tem" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5702" y="-537"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="i2G-Qf-G63">
+            <objects>
+                <navigationController id="sjW-HS-stW" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LED-UI-0LD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Nrb-wD-TwV" kind="relationship" relationship="rootViewController" id="clC-0k-4yf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DVd-TB-Hl9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4932" y="-536"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ms1-nJ-JmF">
@@ -392,6 +451,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icon_filter" width="30" height="30"/>
         <image name="icon_menu" width="30" height="30"/>
         <image name="image_goopter_logo" width="880" height="350"/>
     </resources>

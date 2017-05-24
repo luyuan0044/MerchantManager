@@ -147,7 +147,7 @@ class CategoryTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, indentationLevelForRowAt indexPath: IndexPath) -> Int {
-        return CategoryList.shared.getCategoriesOnView()[indexPath.row].0.level - 2
+        return (CategoryList.shared.getCategoriesOnView()[indexPath.row].0.level - 2) * 2
     }
     
     /*
